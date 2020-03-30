@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>A* Pathfinding</title>
+    <link rel="stylesheet" href="../Scripts/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.js"></script>
+    <script src="../Scripts/Pathfinding/Cell.js"></script>
+    <script src="../Scripts/Pathfinding/solve.js"></script>
+    <script src="../Scripts/Pathfinding/sketch.js"></script>
+</head>
+
+<header>
+    <h1>Sandlin</h1>
+    <nav class="nav">
+        <ul>
+            <li><a href="../index.html" class="navBtn">HOME</a></li>
+            <li><a href="../Pages/page2.html" class="navBtn">CODING</a></li>
+            <li><a href="../Pages/page5.html" class="navBtn">GRAPHIC DESIGN</a></li>
+            <li><a href="#" class="navBtn">ABOUT</a></li>
+        </ul>
+    </nav>
+</header>
+
+<body>
+    <div class="topTextContainer">
+        <h1 id="name">Tanner Sandlin</h1>
+        <p>A* Pathfinding</p>
+    </div>
+
+    <div class="canvasContainer" oncontextmenu="return false;" id="cnvParent4">
+
+        <div class="optionsContainer">
+            <div class="radioContainer">
+                <div class="optionsPair">
+                    <label for="start">Create Start Position</label>
+                    <input type="radio" name="mode" id="startRadio" value="start">
+                </div>
+                <div class="optionsPair">
+                    <label for="obstacle">Create Obstacles</label>
+                    <input type="radio" name="mode" id="obstacleRadio" checked value="obstacle">
+                </div>
+                <div class="optionsPair">
+                    <label for="end">Create End Position</label>
+                    <input type="radio" name="mode" id="endRadio" value="end">
+                </div>
+            </div>
+            <div class="radioContainer">
+                <p>Hueristic Mode:</p>
+                <div class="optionsPair">
+                    <label for="start">Manhattan</label>
+                    <input type="radio" name="heuristic" id="startRadio" value="manhattan">
+                </div>
+                <div class="optionsPair">
+                    <label for="obstacle">Euclidian</label>
+                    <input type="radio" name="heuristic" id="obstacleRadio" checked value="euclid">
+                </div>
+                <div class="optionsPair">
+                    <label for="obstacle">Chebyshev</label>
+                    <input type="radio" name="heuristic" id="obstacleRadio" value="chebyshev">
+                </div>
+            </div>
+            <div class="optionsPair">
+                <p>Cost Coefficient</p>
+                <input type="number" id="costInput" value="1">
+            </div>
+            <div class="optionsPar">
+                <button type="button" onclick="setSolve(true)" id="solveButton">Solve</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+<footer>@2020 Tanner Sandlin</footer>
+
+</html>
