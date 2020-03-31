@@ -50,3 +50,7 @@ function draw() {
   });
   zoff += 0.008;
 }
+
+function refresh(){
+  background(255);
+}

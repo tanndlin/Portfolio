@@ -2,12 +2,12 @@
 <html>
 
 <head>
-    <title>Slope Field</title>
+    <title>Sudoku Solver</title>
     <link rel="stylesheet" href="../Scripts/main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.js"></script>
-    <script src="../Scripts/Slope Field/Particle.js"></script>
-    <script src="../Scripts/Slope Field/sketch.js"></script>
+    <script src="../Scripts/Sudoku Solver/Cell.js"></script>
+    <script src="../Scripts/Sudoku Solver/sketch.js"></script>
 </head>
 
 <header>
@@ -25,14 +25,10 @@
 <body>
     <div class="topTextContainer">
         <h1 id="name">Tanner Sandlin</h1>
-        <p>Slope Fields</p>
+        <p>A* Pathfinding</p>
     </div>
 
-    <div class="canvasContainer" id="cnvParent1">
-        <div class="optionsContainer">
-            <button type="button" onclick="refresh()">Refresh</button>
-        </div>
-    </div>
+    <div class="canvasContainer" oncontextmenu="return false;" id="cnvParent5"></div>
 
 </body>
 
