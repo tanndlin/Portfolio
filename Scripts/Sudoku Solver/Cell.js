@@ -1,11 +1,11 @@
 function Cell(i, j) {
     this.i = i;
     this.j = j;
+    this.next;
+    this.previous;
     this.value = 0;
     this.canChange = true;
     this.neighbors = [];
-    this.next;
-    this.previous;
 
     this.draw = function () {
         stroke(255);
@@ -69,8 +69,8 @@ function Cell(i, j) {
             if (availableNumbers.includes(n.value))
                 availableNumbers.splice(availableNumbers.indexOf(n.value), 1);
 
-        if (this.value != 0)
-            availableNumbers.splice(availableNumbers.indexOf(this.value), 1);
+        // if (this.value != 0)
+        //     availableNumbers.splice(availableNumbers.indexOf(this.value), 1);
 
         return availableNumbers;
 
@@ -81,9 +81,15 @@ function Cell(i, j) {
         this.canChange = change;
     }
 
-    this.checkValidValue = function (val) {
-        if (this.getAvailableNumbers().includes(val))
+    this.checkValidValue = function () {
+        let availableNumbers = this.getAvailableNumbers();
+
+        if (this.value == 0)
+            return false;
+
+        if (availableNumbers.includes(this.value))
             return true;
+
         return false;
     }
 
@@ -92,7 +98,7 @@ function Cell(i, j) {
             this.next = grid[0][this.j + 1];
             return;
         }
-        if (this.i < 8 && this.j != 8) {
+        if (this.i < 8) {
             this.next = grid[this.i + 1][this.j];
             return;
         }
@@ -101,20 +107,20 @@ function Cell(i, j) {
 
     }
 
-    this.calcPrevious = function(){
-        if(this.i != 0 && this.j != 0){
-            this.previous = grid[this.i-1][this.j];
+    this.calcPrevious = function () {
+        if (this.i != 0) {
+            this.previous = grid[this.i - 1][this.j];
             return;
         }
-        if(this.i == 0 && this.j != 0){
-            this.previous = grid[8][this.j-1];
+        if (this.i == 0 && this.j != 0) {
+            this.previous = grid[8][this.j - 1];
             return;
         }
         this.previous = null;
         return;
     }
 
-    this.setup = function(){
+    this.setup = function () {
         this.calcNext();
         this.calcPrevious();
         this.getAllNeighbors();
