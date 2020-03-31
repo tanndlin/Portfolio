@@ -152,9 +152,27 @@ function setEventListeners() {
     document.getElementById("fillButton").addEventListener("click", fillButtonEvent);
 }
 
-function changeStatusBar(str){
+function changeStatusBar(str) {
     let statusBar = document.getElementById('statusBar');
     let beginning = "Status: ";
     statusBar.innerHTML = beginning + str;
 
+}
+
+function keyPressed() {
+
+    if (isInt(key)) {
+        let num = parseInt(key, 10);
+        let x = floor(mouseX / size);
+        let y = floor(mouseY / size);
+
+        //Make sure key is valid
+        let availableNumbers = grid[x][y].getAvailableNumbers();
+        if (availableNumbers.includes(num))
+            grid[x][y].setValue(false, num);
+    }
+}
+
+function isInt(n) {
+    return !isNaN(n);
 }
