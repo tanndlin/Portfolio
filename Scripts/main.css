@@ -136,7 +136,8 @@ img {
 }
 
 .optionsContainer {
-    display: inline-block;
+    display: inline-flex;
+    flex-wrap: wrap;
     background: rgb(37, 160, 86);
     margin: 10px 0px;
     padding-top: 10px;
@@ -144,6 +145,8 @@ img {
     padding-bottom: 10px;
     padding-left: 10px;
     width: 900px;
+    align-items: center;
+    justify-content: center;
 }
 
 p {
@@ -175,6 +178,12 @@ p {
     height: 30px;
     transform: translate(0, 50%);
     top: 50%;
+}
+
+.flockOptionWrapper{
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid white;
 }
 
 .slider {
