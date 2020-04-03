@@ -70,6 +70,9 @@ function grabHTMLelements(){
     alignInfluSlider = document.getElementById('alignInfluSlider');
     sepInfluSlider = document.getElementById('sepInfluSlider');
     cohInfluSlider = document.getElementById('cohInfluSlider');
+
+    console.log(alignDistSlider);
+    
 }
 
 function updateLabels(){
