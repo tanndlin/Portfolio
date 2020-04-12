@@ -149,6 +149,10 @@ img {
     justify-content: center;
 }
 
+.optionsContainer > button {
+    margin: 0 10px;
+}
+
 p {
     margin: 0;
 }
@@ -173,11 +177,19 @@ p {
     clear: both;
 }
 
+.button{
+    width: 10%;
+    border: 3px solid rgb(39, 90, 41);
+    border-radius: 10%;
+}
+
 #solveButton {
     width: 100px;
     height: 30px;
     transform: translate(0, 50%);
     top: 50%;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 .flockOptionWrapper{
