@@ -192,6 +192,10 @@ p {
     margin-bottom: 10px;
 }
 
+#rockSlider{
+    width: 100px;
+}
+
 .flockOptionWrapper{
     margin: 10px;
     padding: 10px;
