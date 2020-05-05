@@ -57,8 +57,6 @@ function mouseDragged() {
     if (distFromCenter > 300)
         return;
 
-    // x = x + cos(angle) * distFromCenter;
-    // y = y + sin(angle) * distFromCenter;
 
     let angle = atan(y / x);
     if (x < 0)
