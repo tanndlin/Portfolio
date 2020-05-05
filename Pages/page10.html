@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Spin Art</title>
+    <link rel="stylesheet" href="../Scripts/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.js"></script>
+    <script src="../Scripts/SPin Art/sketch.js"></script>
+</head>
+
+<header>
+    <h1>Sandlin</h1>
+    <nav class="nav">
+        <ul>
+            <li><a href="../index.html" class="navBtn">HOME</a></li>
+            <li><a href="../Pages/page2.html" class="navBtn">CODING</a></li>
+            <li><a href="../Pages/page5.html" class="navBtn">GRAPHIC DESIGN</a></li>
+            <li><a href="#" class="navBtn">ABOUT</a></li>
+        </ul>
+    </nav>
+</header>
+
+<body>
+    <div class="topTextContainer">
+        <h1 id="name">Tanner Sandlin</h1>
+        <p>Spin Art</p>
+    </div>
+
+    <div class="canvasContainer" oncontextmenu="return false;" id="cnvParent7">
+        <div class="optionsContainer">
+            <div class="optionPair">
+
+                <div class="sliderContainer">
+                    <p id="angleVeloLabel">Angular Velocity: 1 Degree(s) per second</p>
+                    <input id="angleVeloSlider" class="slider" type="range" min="0" max="20" value="5" step="0.1">
+                </div>
+
+            </div>
+
+            <div class="optionPair">
+                <div class="sliderContainer">
+                    <p id="drawSizeRandLabel">Draw Size Randomness: 20</p>
+                    <input id="drawSizeRandSlider" class="slider" type="range" min="0" max="100" value="0">
+                </div>
+            </div>
+
+            <div class="optionPair">
+                <div class="sliderContainer">
+                    <p> Stroke Color</p>
+                    <input type="color" id="strokeColorPicker" value="#ffffff">
+                </div>
+            </div>
+
+            <div class="optionPair">
+                <div class="sliderContainer">
+                    <p> Canvas Color</p>
+                    <input type="color" id="cnvColorPicker" value="#000000">
+                </div>
+            </div>
+
+            <div class="optionPair">
+                <button onclick="reset()">Reset Drawing</button>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+</body>
+
+<footer>@2020 Tanner Sandlin</footer>
+
+</html>
