@@ -214,6 +214,10 @@ p {
     transition: opacity .2s;
 }
 
+.sliderContainer{
+    margin: 0 20px;
+}
+
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
