@@ -16,7 +16,7 @@ let cnvColorPicker;
 
 function setup() {
     let cnv = createCanvas(900, 900);
-    cnv.parent('cnvParent7')
+    cnv.parent('cnvParent8')
     angleMode(DEGREES);
     frameRate(60);
 
