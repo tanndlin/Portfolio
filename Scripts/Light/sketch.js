@@ -3,7 +3,7 @@ let boundaries = [];
 let p1temp;
 let p2temp;
 let firstPointSet = false;
-let numRays = 20;
+let numRays = 1000;
 let origin;
 
 function setup() {
