@@ -241,6 +241,14 @@ p {
     padding: 5px;
 }
 
+#numSpeedsSlider{
+    width: 50%;
+}
+
+#numRaysSlider{
+    width: 50%;
+}
+
 #cnvParent1 {
     margin-top: 1%;
 }

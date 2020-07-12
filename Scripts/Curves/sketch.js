@@ -3,30 +3,21 @@ let times = [];
 let grid = [];
 let circleSize;
 let speed = 500;
-const showExtras = false;
+let showExtras = false;
 let biggerShapeSize = 2;
 
+let numSpeedsLabel;
+let numSpeedsSlider;
+let showCheck;
+
 function setup() {
+    getHTML();
     // frameRate(10);
     let cnv = createCanvas(900, 900);
     cnv.parent("cnvParent9");
     background(51);
 
-    for (let i = 0; i < numSpeeds; i++) {
-        times.push(0);
-    }
-
-    circleSize = .4 * (width / (numSpeeds + 1));
-
-    for (let i = 0; i < numSpeeds + 1; i++) {
-        let temp = [];
-
-        for (let j = 0; j < numSpeeds + 1; j++) {
-            temp.push([createVector(circleSize, 0)]);
-        }
-
-        grid.push(temp);
-    }
+    reset();
 
 
 
@@ -34,6 +25,7 @@ function setup() {
 
 function draw() {
     background(51);
+    showExtras = showCheck.checked;
 
     for (let i = 1; i < times.length + 1; i++) {
         times[i - 1] += (TWO_PI / speed) * i;
@@ -130,7 +122,7 @@ function draw() {
 
                 //Calculates period so there is no overlap
                 let period = speed / gcd(i, j);
-                if (frameCount < period) {
+                if (frameCount <= period) {
 
                     let points = grid[i][j];
                     let x = circleSize * cos(times[i - 1]);
@@ -176,4 +168,53 @@ function gcd(a, b) {
     }
 
     return gcd(b, a % b);
+}
+
+
+function reset() {
+
+    times = [];
+    grid = [];
+
+    for (let i = 0; i < numSpeeds; i++) {
+        times.push(0);
+    }
+
+    circleSize = .4 * (width / (numSpeeds + 1));
+
+    for (let i = 0; i < numSpeeds + 1; i++) {
+        let temp = [];
+
+        for (let j = 0; j < numSpeeds + 1; j++) {
+            temp.push([createVector(circleSize, 0)]);
+        }
+        grid.push(temp);
+    }
+
+    frameCount = 0;
+
+}
+
+
+function getHTML() {
+    numSpeedsLabel = document.getElementById("numSpeedsLabel");
+    numSpeedsSlider = document.getElementById("numSpeedsSlider");
+    numSpeedsSlider.addEventListener("change", sliderChanged);
+    showCheck = document.getElementById("showCheck");
+}
+
+function sliderChanged() {
+    numSpeeds = parseInt(numSpeedsSlider.value);
+    changeLabel();
+    reset();
+
+}
+
+
+function changeLabel() {
+
+    let prefix = "Number of Speeds: ";
+    let sentence = prefix + numSpeeds;
+    numSpeedsLabel.innerHTML = sentence;
+
 }

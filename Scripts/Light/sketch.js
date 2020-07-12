@@ -3,20 +3,21 @@ let boundaries = [];
 let p1temp;
 let p2temp;
 let firstPointSet = false;
-let numRays = 1000;
+let numRays = 2000;
 let origin;
 
+let numRaysSlider;
+let numRaysLabel;
+
 function setup() {
+    getHTML();
+
     let cnv = createCanvas(900, 900);
     cnv.parent('cnvParent7');
     background(51);
     origin = createVector();
 
-    for (i = 0; i < numRays; i++) {
-        let angle = TWO_PI / numRays * i;
-        let r = new Ray(origin, angle);
-        rays.push(r);
-    }
+    createRays();
 
 
     //Set outer boundaries
@@ -46,7 +47,7 @@ function draw() {
         r.draw();
     }
 
-    origin = createVector(mouseX, mouseY);    
+    origin = createVector(mouseX, mouseY);
     rays.forEach(r => {
         r.origin = origin;
     });
@@ -57,20 +58,54 @@ function mousePressed() {
     let x = mouseX;
     let y = mouseY;
 
-    if (!firstPointSet) {
-        p1temp = createVector(x, y);
-        firstPointSet = true;
-    } else {
+    if (x > 0 && x <= width) {
+        if (y > 0 && y <= height) {
 
-        p2temp = createVector(x, y);
-        let b = new Boundary(p1temp, p2temp);
-        console.log(b);
+            if (!firstPointSet) {
+                p1temp = createVector(x, y);
+                firstPointSet = true;
+            } else {
 
-        boundaries.unshift(b);
+                p2temp = createVector(x, y);
+                let b = new Boundary(p1temp, p2temp);
+                console.log(b);
 
-        console.log("Created boundary");
-        firstPointSet = false;
+                boundaries.unshift(b);
 
+                console.log("Created boundary");
+                firstPointSet = false;
+
+            }
+        }
     }
+
+}
+
+function createRays(){
+    rays = [];
+    for (i = 0; i < numRays; i++) {
+        let angle = TWO_PI / numRays * i;
+        let r = new Ray(origin, angle);
+        rays.push(r);
+    }
+}
+
+function getHTML() {
+    numRaysLabel = document.getElementById("numRaysLabel");
+    numRaysSlider = document.getElementById("numRaysSlider");
+    numRaysSlider.addEventListener("change", sliderChanged);
+}
+
+function sliderChanged() {
+    numRays = parseInt(numRaysSlider.value);
+    updateLabel();
+    createRays();
+}
+
+function updateLabel() {
+
+    let prefix = "Number of Rays: ";
+    let sentence = prefix + numRays;
+    numRaysLabel.innerHTML = sentence;
 
 }

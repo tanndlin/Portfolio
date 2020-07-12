@@ -26,9 +26,25 @@
         <p>Lissajous Curves</p>
     </div>
 
-    <div class="canvasContainer" oncontextmenu="return false;" id="cnvParent9">
+    <div class="canvasContainer" id="cnvParent9">
+        <div class="optionsContainer">
+            <div class="optionPair">
+
+                <div class="sliderContainer">
+                    <p id="numSpeedsLabel">Number of Speeds: 10</p>
+                    <input id="numSpeedsSlider" class="slider" type="range" min="1" max="20" value="10" step="1">
+                </div>
+
+            </div>
+
+            <div class="optionPair">
+                <p>Show Drawing Lines</p>
+                <input type="checkbox" id="showCheck">
+            </div>
+
+        </div>
     </div>
-    
+
 </body>
 
 </html>
