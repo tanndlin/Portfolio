@@ -1,2 +1,2 @@
 # Portfolio
-[![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=anuraghazra)](https://github.com/anuraghazra/github-readme-stats)
+[![Tanndlin's github stats](https://github-readme-stats.vercel.app/api?username=tanndlin)](https://github.com/anuraghazra/github-readme-stats)
