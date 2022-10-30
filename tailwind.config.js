@@ -8,6 +8,9 @@ module.exports = {
       height: {
         'minus-header': 'calc(100vh - 4rem)'
       },
+      'minHeight': {
+        'minus-header': 'calc(100vh - 4rem)'
+      },
       width: {
         '1/20': '5%'
 

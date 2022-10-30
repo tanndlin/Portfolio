@@ -1,7 +1,6 @@
 import React from 'react';
-import logo from '../img/github.png';
 
-function Project(props) {
+function Experience(props) {
     return (
         <section className='project flex flex-cols p-3 my-10 mx-5 bg-indigo-600 rounded-md justify-between'>
             <div>
@@ -13,16 +12,12 @@ function Project(props) {
                 </ul>
             </div>
 
-            {props.link && (
-                <div className='flex w-1/20'>
-                    <a className='right-0 top-0' href={props.link}>
-                        <img className='' src={logo} alt="Github Logo" />
-                    </a>
-                </div>
-            )}
+            <div>
+                <h2>{props.date}</h2>
+            </div>
         </section>
     );
 }
 
-export default Project;
+export default Experience;
 
