@@ -9,7 +9,7 @@ function Header() {
                 <ul className='flex my-auto gap-3 float-right'>
                     <Link className='mx-4 text-xl' to={{ pathname: '/' }}>Home</Link>
                     <Link className='mx-4 text-xl' to={{ pathname: '/projects' }}>Projects</Link>
-                    <Link className='mx-4 text-xl' to={{ pathname: '/' }}>Contact</Link>
+                    {/* <Link className='mx-4 text-xl' to={{ pathname: '/' }}>Contact</Link> */}
                 </ul>
             </nav>
         </header>
