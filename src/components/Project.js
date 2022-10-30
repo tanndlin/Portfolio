@@ -3,7 +3,7 @@ import logo from '../img/github.png';
 
 function Project(props) {
     return (
-        <section className='flex flex-cols p-3 my-3 bg-indigo-600 rounded-md justify-between'>
+        <section className='project flex flex-cols p-3 my-10 mx-5 bg-indigo-600 rounded-md justify-between'>
             <div>
                 <h1 className='text-2xl font-bold'>
                     {props.title}
