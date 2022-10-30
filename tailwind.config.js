@@ -6,13 +6,14 @@ module.exports = {
   theme: {
     extend: {
       height: {
-        'minus-header': 'calc(100vh - 4rem)'
+        'minus-header': 'calc(100vh - 4rem)',
       },
       'minHeight': {
-        'minus-header': 'calc(100vh - 4rem)'
+        'minus-header': 'calc(100vh - 4rem)',
       },
       width: {
-        '1/20': '5%'
+        '1/10': '10%',
+        '1/20': '5%',
 
       },
     },

@@ -37,6 +37,10 @@
   }
 }
 
+.project {
+  transition: 0.2s;
+}
+
 .project:hover {
   background-color: #5e57e0; /* Default is bg-indigo-600 */
 
@@ -47,6 +51,11 @@
   transition: 0.2s;
 }
 
-.project {
+.socialLink {
+  transition: 0.2s;
+}
+
+.socialLink:hover {
+  background-color: white;
   transition: 0.2s;
 }
