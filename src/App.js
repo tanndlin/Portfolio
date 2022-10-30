@@ -14,6 +14,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/projects" element={<ProjectsPage />} />
+          <Route path="/Contact-Manager/src/index.html" />
         </Routes>
       </div>
     </Router>

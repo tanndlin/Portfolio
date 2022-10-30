@@ -1,0 +1,166 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(51, 51, 51);
+  background-image: url('../images/Glacier.jpg');
+  font-family: 'Roboto', sans-serif;
+}
+
+.mainContainer {
+  text-align: center;
+}
+
+.inputContainer {
+  display: block;
+  text-align: center;
+}
+
+h1,
+h3 {
+  text-align: center;
+  color: white;
+}
+
+.topBar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+
+  background-color: rgb(41, 147, 179);
+  height: 50px;
+  display: flex;
+}
+
+.topBar > h3 {
+  padding: 0px;
+  margin: auto 0px;
+  margin-left: 100px;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+}
+
+.form {
+  list-style: none;
+  color: white;
+  text-align: left;
+  padding: 0;
+}
+
+.form > li {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.labelInputPair {
+  display: block;
+  /* width: 100%; */
+}
+
+.name {
+  width: 47.5%;
+}
+
+.email {
+  width: 65%;
+}
+
+.phoneNumber {
+  width: 30%;
+}
+
+.formInputContainer {
+  width: 100%;
+  display: flex;
+  /* margin: auto; */
+  margin-bottom: 10px;
+}
+
+.formInputContainer > input {
+  font-size: 20px;
+  width: 100%;
+}
+
+.verifyLabel {
+  margin: auto 0 auto -30px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+button {
+  border-radius: 20px;
+  background-color: rgb(46, 194, 199);
+  color: black;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(45, 248, 255);
+  transition: 0.75s;
+}
+
+.inputContainer > button {
+  width: 200px;
+  height: 50px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* --------------------- Scroll bars --------------------- */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(35, 128, 156);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(60, 209, 255);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(160, 209, 224);
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 240px;
+  background-color: rgb(46, 194, 199);
+  border: 1px solid black;
+  color: #000;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}

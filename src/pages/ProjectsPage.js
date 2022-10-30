@@ -18,7 +18,7 @@ function ProjectsPage() {
 
                 <Project title={'Contact Manager'} link={'https://github.com/tanndlin/Contact-Manager'}>
                     <li>Sole frontend eningeer on a fullstack website application for managing a user's contacts</li>
-                    <li className='font-bold'><Link to={{ pathname: '/ContactManager' }}> Check Me Out</Link></li>
+                    <li className=''><Link to='/cmindex.html' target="_blank" rel="noopener noreferrer"> <b>Check Me Out</b> (Some Features will not work as I adapted this to work without a backend and API)</Link></li>
                 </Project>
             </article>
 
