@@ -6,7 +6,7 @@ import Project from '../components/Project';
 
 function ProjectsPage() {
     return (
-        <div className='bg min-h-minus-header flex flex-col gap-16'>
+        <div className='bg min-h-minus-header flex flex-col gap-16 min-w-[400px]'>
 
             <article className="container bg-blue-700 m-auto mb-0 mt-16 rounded-md text-white p-3">
                 <h1 className="text-7xl text-center">Personal Projects</h1>

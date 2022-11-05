@@ -14,7 +14,7 @@ function Project(props) {
             </div>
 
             {props.link && (
-                <div className='flex w-1/20'>
+                <div className='flex w-1/20 min-w-[48px]'>
                     <a className='right-0 top-0' href={props.link}>
                         <img className='' src={logo} alt="Github Logo" />
                     </a>
