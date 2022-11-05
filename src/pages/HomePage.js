@@ -7,7 +7,7 @@ import linkedinLogo from '../img/linkedin.png';
 
 function HomePage() {
     return (
-        <div className='bg-sky-500 h-minus-header flex'>
+        <div className='bg h-minus-header flex'>
             <article className="container bg-blue-700 m-auto mt-32 rounded-md text-white py-10">
                 <h1 className="text-7xl text-center">Tanner Sandlin</h1>
                 <h2 className="text-3xl text-center">Self-Taught Developer and CS Student</h2>

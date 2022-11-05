@@ -59,3 +59,8 @@
   background-color: white;
   transition: 0.2s;
 }
+
+.bg {
+  /* Gradient */
+  background: linear-gradient(0deg, #5e57e0 0%, rgb(14 165 233) 100%);
+}
