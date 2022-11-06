@@ -8,7 +8,7 @@ function ProjectsPage() {
     return (
         <div className='bg min-h-minus-header flex flex-col gap-16 min-w-[400px]'>
 
-            <article className="container bg-blue-700 m-auto mb-0 mt-16 rounded-md text-white p-3">
+            <article className="container bg-blue-700 m-auto mb-0 mt-16 rounded-md text-white p-3 shadow-2xl">
                 <h1 className="text-7xl text-center">Personal Projects</h1>
                 <Project title={'Lion'} link={'https://github.com/cs-discord-at-ucf/lion'}>
                     <li>Lead Developer of Lion, a discord bot developed in TypeScript with over 30 contributors</li>
@@ -22,7 +22,7 @@ function ProjectsPage() {
                 </Project>
             </article>
 
-            <article className="container bg-blue-700 m-auto mb-16 mt-0 rounded-md text-white p-3">
+            <article className="container bg-blue-700 m-auto mb-16 mt-0 rounded-md text-white p-3 shadow-2xl">
                 <h1 className="text-7xl text-center">Experience</h1>
                 <Experience title={'Georgia Tech Research Institute'} date={'Oct 2022 - Present'}>
                     <li>Software Engineer Intern</li>

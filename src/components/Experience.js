@@ -2,7 +2,7 @@ import React from 'react';
 
 function Experience(props) {
     return (
-        <section className='project flex flex-cols p-3 my-10 mx-5 bg-indigo-600 rounded-md justify-between'>
+        <section className='project flex flex-cols p-3 my-10 mx-5 bg-indigo-600 rounded-md justify-between shadow-2xl'>
             <div>
                 <h1 className='text-2xl font-bold'>
                     {props.title}

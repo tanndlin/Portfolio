@@ -8,13 +8,13 @@ import linkedinLogo from '../img/linkedin.png';
 function HomePage() {
     return (
         <div className='bg h-minus-header flex min-w-[400px]'>
-            <article className="container bg-blue-700 m-auto mt-32 rounded-md text-white py-10">
+            <article className="container bg-blue-700 m-auto mt-32 rounded-md text-white py-10 shadow-2xl">
                 <h1 className="text-7xl text-center">Tanner Sandlin</h1>
                 <h2 className="text-3xl text-center">Self-Taught Developer and CS Student</h2>
 
                 <section className="flex flex-col">
                     <Link
-                        className="text-2xl mx-auto my-10 p-3 px-16 border-4 border-white rounded-md hover:bg-white hover:text-blue-700"
+                        className="text-2xl mx-auto my-10 p-3 px-16 border-4 border-white rounded-md hover:bg-white hover:text-blue-700 shadow-lg"
                         to={{ pathname: '/projects' }}>
                         View Projects
                     </Link>
