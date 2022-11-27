@@ -1,5 +1,5 @@
 import React from 'react';
-import githubLogo from '../img/github.png';
+import Icon from './Icon';
 
 function Project(props) {
     return (
@@ -25,7 +25,7 @@ function Project(props) {
                             }
                         </ul>
                         <a className={`${props.side === 'right' && 'justify-end'} flex mt-4 gap-4`} href={props.link}>
-                            <img className={`${props.side === 'right' && 'right-0'} w-8`} src={githubLogo} alt="Github Logo" />
+                            <Icon className={`${props.side === 'right' && 'right-0'} w-8`} name='github' />
                         </a>
                     </footer>
                     <a
@@ -40,4 +40,3 @@ function Project(props) {
 }
 
 export default Project;
-
