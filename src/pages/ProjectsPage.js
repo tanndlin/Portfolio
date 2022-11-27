@@ -14,6 +14,7 @@ function ProjectsPage() {
                     link='https://github.com/cs-discord-at-ucf/lion'
                     img={lionImg}
                     side='left'
+                    technologies={["TypeScript", "Discord API", "MongoDB", "Docker"]}
                 >
                     <p>
                         Lead Developer of Lion, a discord bot developed in
@@ -28,6 +29,7 @@ function ProjectsPage() {
                     link='https://github.com/tanndlin/Contact-Manager'
                     img={contactManagerImg}
                     side='right'
+                    technologies={["Pure HTML/CSS", "JavaScript", "SQL", "Php"]}
                 >
                     <p>
                         Sole frontend eningeer on a fullstack website application
@@ -36,7 +38,7 @@ function ProjectsPage() {
                     </p>
                 </Project>
             </article>
-        </div>
+        </div >
     );
 
 }

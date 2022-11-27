@@ -17,7 +17,7 @@ function App() {
     <>
       <Header />
       <div className='bg'></div>
-      <li className='fixed flex flex-col justify-center gap-4 bottom-16'>
+      <li className='fixed flex flex-col justify-center gap-4 bottom-16 ml-10'>
         <SocialLink link={'https://github.com/tanndlin'} logo={githubLogo} alt={'Github Logo'} />
         <SocialLink link={'https://twitter.com/Tanner_Sandlin'} logo={twitterLogo} alt={'Twitter Logo'} />
         <SocialLink className='w-10' link={'https://www.linkedin.com/in/tanner-sandlin/'} logo={linkedinLogo} alt={'LinkedIn Logo'} />
