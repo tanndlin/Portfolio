@@ -28,7 +28,7 @@ function Project(props) {
                     </a>
                 </footer>
                 <a
-                    className={`max-w-[500px] absolute top-1/2 -translate-y-1/2 -z-[1] ${props.side === 'left' ? 'right-0' : 'left-0'}`}
+                    className={`projectDisplay max-w-[500px] absolute top-1/2 -translate-y-1/2 -z-[1] ${props.side === 'left' ? 'right-0' : 'left-0'}`}
                     href={props.link}>
                     <img className='min-h-[237px]' src={props.img} alt="Project" />
                 </a>
