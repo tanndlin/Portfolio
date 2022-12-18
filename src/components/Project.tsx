@@ -16,13 +16,13 @@ function Project(props: ProjectProps) {
         <section className="project">
             <h1 className={`text-2xl mb-16 font-mono`}>{props.title}</h1>
             <div className="relative">
-                <ul
-                    className={`description font-mono list-disc pl-8 w-3/5 p-4 bg-gray-800 rounded-md shadow-xl`}
+                <div
+                    className={`description font-mono pl-8 w-3/5 p-4 bg-gray-800 rounded-md shadow-xl`}
                 >
                     {props.children}
-                </ul>
+                </div>
                 <footer className={`techContainer flex flex-col mt-4`}>
-                    <ul className={`flex gap-4 text-gray-200`}>
+                    <ul className={`flex gap-4`}>
                         {props.technologies.map((tech, index) => {
                             return <li key={index}>{tech}</li>;
                         })}
@@ -43,7 +43,7 @@ function Project(props: ProjectProps) {
                 </footer>
                 <a
                     className={`projectDisplay max-w-[500px] absolute top-1/2 -translate-y-1/2 -z-[1]`}
-                    href={props.link}
+                    href={props.link ?? props.githubLink}
                 >
                     <img
                         className="min-h-[237px]"

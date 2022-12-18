@@ -11,24 +11,45 @@ import linkedinLogo from './img/linkedin.png';
 
 import './App.scss';
 
-
 function App() {
-  return (
-    <>
-      <Header />
-      <div className='bg'></div>
-      <li className='fixed flex flex-col justify-center gap-4 bottom-16 ml-10'>
-        <SocialLink link={'https://github.com/tanndlin'} logo={githubLogo} alt={'Github Logo'} />
-        <SocialLink link={'https://twitter.com/Tanner_Sandlin'} logo={twitterLogo} alt={'Twitter Logo'} />
-        <SocialLink className='w-10' link={'https://www.linkedin.com/in/tanner-sandlin/'} logo={linkedinLogo} alt={'LinkedIn Logo'} />
-      </li>
-      <Container>
-        <HomePage />
-        <ProjectsPage />
-        <ExperiencePage />
-      </Container>
-    </>
-  );
+    return (
+        <>
+            <Header />
+            <div className="bg"></div>
+            <ul
+                id="socialsContainer"
+                className="fixed flex flex-col justify-center gap-4 bottom-16 ml-10"
+            >
+                <li>
+                    <SocialLink
+                        link={'https://github.com/tanndlin'}
+                        logo={githubLogo}
+                        alt={'Github Logo'}
+                    />
+                </li>
+                <li>
+                    <SocialLink
+                        link={'https://twitter.com/Tanner_Sandlin'}
+                        logo={twitterLogo}
+                        alt={'Twitter Logo'}
+                    />
+                </li>
+                <li>
+                    <SocialLink
+                        className="w-10"
+                        link={'https://www.linkedin.com/in/tanner-sandlin/'}
+                        logo={linkedinLogo}
+                        alt={'LinkedIn Logo'}
+                    />
+                </li>
+            </ul>
+            <Container>
+                <HomePage />
+                <ProjectsPage />
+                <ExperiencePage />
+            </Container>
+        </>
+    );
 }
 
 export default App;
