@@ -12,6 +12,32 @@ import linkedinLogo from './img/linkedin.png';
 import './App.scss';
 
 function App() {
+    const [lastScroll, setLastScroll] = React.useState(0);
+    let debounce = false;
+
+    const onScroll = () => {
+        if (debounce) return;
+        debounce = true;
+        const header = document.querySelector('.header')!;
+
+        // Check if scrolled down
+        if (window.scrollY > lastScroll) {
+            header.classList.add('hide');
+        }
+
+        // Check if scrolled up
+        if (window.scrollY < lastScroll) {
+            header.classList.remove('hide');
+        }
+
+        setLastScroll(window.scrollY);
+        setTimeout(() => {
+            debounce = false;
+        }, 300);
+    };
+
+    window.addEventListener('scroll', onScroll);
+
     return (
         <>
             <Header />

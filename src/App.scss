@@ -10,7 +10,7 @@
 
 
 .socialLink {
-  transition: 0.2s;
+  transition: 0.2s ease;
 
   &:hover {
     transform: scale(1.2);
@@ -65,6 +65,16 @@
   @apply flex gap-4;
 }
 
-header li:hover {
-  color: rgb(79 70 229);
+.header {
+  transition: 300ms;
+
+  & li:hover {
+    color: rgb(79 70 229);
+  }
+
+  &.hide {
+    transform: scaleY(0);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
 }
