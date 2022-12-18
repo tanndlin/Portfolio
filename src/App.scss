@@ -25,17 +25,31 @@
   z-index: -1000;
 }
 
-.project:nth-child(2n) {
-  &>h1 {
-    @apply text-right;
+
+
+.project {
+  &:nth-child(2n+1) {
+    & .projectDisplay {
+      right: 0;
+    }
   }
 
-  & .description {
-    margin-left: auto;
-  }
+  &:nth-child(2n) {
+    & .projectDisplay {
+      left: 0;
+    }
 
-  & .techContainer {
-    float: right;
+    &>h1 {
+      @apply text-right;
+    }
+
+    & .description {
+      margin-left: auto;
+    }
+
+    & .techContainer {
+      float: right;
+    }
   }
 }
 

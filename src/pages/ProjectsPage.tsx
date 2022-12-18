@@ -2,7 +2,9 @@ import React from 'react';
 import Project from '../components/Project';
 import lionImg from '../img/lion.png';
 import contactManagerImg from '../img/contact-manager-ss.png';
+import noteTakerImg from '../img/note-taker-ss.png';
 import budgie from '../img/budgie.png';
+import dynamiCalcImg from '../img/dynamiCalc-ss.png';
 
 function ProjectsPage() {
     return (
@@ -15,10 +17,9 @@ function ProjectsPage() {
                     link="https://budgie.live"
                     githubLink="https://github.com/tanndlin/Budgie"
                     img={budgie}
-                    side="right"
                     technologies={['React', 'Firebase', 'Flutter', 'ExpressJS']}
                 >
-                    <p className="font-mono">
+                    <p>
                         A budgie tracker app that allows users to keep track of
                         recurring bills, grocery budgets, and one time expenses.
                         I was the lead front end eningeer for the website and
@@ -30,7 +31,6 @@ function ProjectsPage() {
                     title="Lion"
                     githubLink="https://github.com/cs-discord-at-ucf/lion"
                     img={lionImg}
-                    side="left"
                     technologies={[
                         'TypeScript',
                         'Discord API',
@@ -38,7 +38,7 @@ function ProjectsPage() {
                         'Docker',
                     ]}
                 >
-                    <p className="font-mono">
+                    <p>
                         Lead Developer of Lion, a discord bot developed in
                         TypeScript with over 30 contributors. Helps manage the
                         UCF CS Discord, making the life of the average user and
@@ -47,14 +47,41 @@ function ProjectsPage() {
                 </Project>
 
                 <Project
+                    title="Note Taker"
+                    githubLink="https://github.com/tanndlin/NoteTaker"
+                    img={noteTakerImg}
+                    technologies={['React', 'TypeScript']}
+                >
+                    <p>
+                        A note taking app that utilizes markdown to render
+                        styled notes.
+                    </p>
+
+                    <ul className="list-disc">
+                        <li className="ml-4">
+                            Takes advantage of hyperlinks to quickly reference
+                            other notes, and allows for easy navigation between
+                            related notes
+                        </li>
+                        <li className="ml-4">
+                            Graph feature to visualize the relationships between
+                            notes.
+                        </li>
+                        <li className="ml-4">
+                            Stores and displays notes in file system tree
+                            structure for easy organization
+                        </li>
+                    </ul>
+                </Project>
+
+                <Project
                     title="Contact Manager"
                     link="/cmindex.html"
                     githubLink="https://github.com/tanndlin/Contact-Manager"
                     img={contactManagerImg}
-                    side="right"
                     technologies={['Pure HTML/CSS', 'JavaScript', 'SQL', 'Php']}
                 >
-                    <p className="font-mono">
+                    <p>
                         Sole frontend eningeer on a fullstack website
                         application for managing a user's contacts <br />
                         <a
@@ -66,6 +93,20 @@ function ProjectsPage() {
                             <b>Check Me Out</b> (Some Features will not work as
                             I adapted this to work without a backend and API)
                         </a>
+                    </p>
+                </Project>
+
+                <Project
+                    title="DynamiCalc"
+                    githubLink="https://github.com/tanndlin/DynamiCalc"
+                    technologies={['React', 'TypeScript']}
+                    img={dynamiCalcImg}
+                >
+                    <p>
+                        Most calculators have static variables that do not
+                        change after being set. DynamiCalc allows users to
+                        create dynamic variables that change as the user inputs
+                        new values.
                     </p>
                 </Project>
             </article>

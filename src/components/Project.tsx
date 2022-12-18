@@ -8,7 +8,6 @@ interface ProjectProps {
     link?: string;
     githubLink: string;
     img: string;
-    side: 'left' | 'right';
     children: React.ReactNode;
 }
 
@@ -18,7 +17,7 @@ function Project(props: ProjectProps) {
             <h1 className={`text-2xl mb-16 font-mono`}>{props.title}</h1>
             <div className="relative">
                 <ul
-                    className={`description list-disc pl-8 w-3/5 p-4 bg-gray-800 rounded-md shadow-xl`}
+                    className={`description font-mono list-disc pl-8 w-3/5 p-4 bg-gray-800 rounded-md shadow-xl`}
                 >
                     {props.children}
                 </ul>
@@ -43,9 +42,7 @@ function Project(props: ProjectProps) {
                     </span>
                 </footer>
                 <a
-                    className={`projectDisplay max-w-[500px] absolute top-1/2 -translate-y-1/2 -z-[1] ${
-                        props.side === 'left' ? 'right-0' : 'left-0'
-                    }`}
+                    className={`projectDisplay max-w-[500px] absolute top-1/2 -translate-y-1/2 -z-[1]`}
                     href={props.link}
                 >
                     <img
