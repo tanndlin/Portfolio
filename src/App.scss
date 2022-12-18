@@ -21,11 +21,24 @@
   }
 }
 
-
 .bg {
   background: linear-gradient(0deg, #5e57e0 0%, rgb(14 165 233) 100%);
   position: fixed;
   height: 100vh;
   width: 100vw;
   z-index: -1000;
+}
+
+#projects .project:nth-child(2n) {
+  &>h1 {
+    @apply text-right;
+  }
+
+  & .description {
+    margin-left: auto;
+  }
+
+  & .techContainer {
+    float: right;
+  }
 }
