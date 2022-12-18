@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from './Icon';
+import Icon from './GitHubIcon';
 import ExternalIcon from './ExternalIcon';
 
 interface ProjectProps {
@@ -32,7 +32,7 @@ function Project(props: ProjectProps) {
                             className="projectLink hover:fill-white"
                             href={props.githubLink}
                         >
-                            <Icon className="w-8" name="github" />
+                            <Icon className="w-8" />
                         </a>
                         {props.link && (
                             <a className="projectLink" href={props.link}>

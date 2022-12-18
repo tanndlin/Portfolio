@@ -1,10 +1,10 @@
 import React from 'react';
-import Project from '../components/Project';
-import lionImg from '../img/lion.png';
-import contactManagerImg from '../img/contact-manager-ss.png';
-import noteTakerImg from '../img/note-taker-ss.png';
-import budgie from '../img/budgie.png';
-import dynamiCalcImg from '../img/dynamiCalc-ss.png';
+import Project from './Project';
+import lionImg from '../../img/lion.png';
+import contactManagerImg from '../../img/contact-manager-ss.png';
+import noteTakerImg from '../../img/note-taker-ss.png';
+import budgie from '../../img/budgie.png';
+import dynamiCalcImg from '../../img/dynamiCalc-ss.png';
 
 function ProjectsPage() {
     return (
