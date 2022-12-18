@@ -3,13 +3,18 @@ import Experience from '../components/Experience'
 
 const ExperiencePage = () => {
     return (
-        <div id='experience' className='min-h-screen flex min-w-[400px]'>
-
-            <article className="container bg-blue-700 m-auto rounded-md text-white p-3 shadow-2xl">
-                <h1 className="text-7xl text-center">Experience</h1>
-                <Experience title={'Georgia Tech Research Institute'} date={'Oct 2022 - Present'}>
-                    <li>Software Engineer Intern</li>
+        <div id='experience' className='min-h-screen flex min-w-[400px] font-mono'>
+            <article className="container m-auto rounded-md text-white p-3">
+                <h1 className="text-4xl mb-24">Experience</h1>
+                <Experience
+                    title='SWE Intern'
+                    company={{
+                        name: 'GTRI',
+                        link: 'https://gtri.gatech.edu/'
+                    }}
+                    date={'Oct 2022 - Present'}>
                     <li>C# Frontend Developer using .NET framework to create GUIs for desktop applications</li>
+                    <li>Currently obtaining security clearance</li>
                 </Experience>
             </article>
         </div>

@@ -2,12 +2,16 @@ import React from 'react';
 
 function Experience(props) {
     return (
-        <section className='project flex flex-cols p-3 my-10 mx-5 bg-indigo-600 rounded-md justify-between shadow-2xl'>
+        <section className='flex p-3 my-10 mx-5 bg-gray-800 rounded-md justify-between shadow-2xl'>
             <div>
-                <h1 className='text-2xl font-bold'>
-                    {props.title}
-                </h1>
-                <ul className='list-disc ml-8'>
+                <span className='flex text-2xl'>
+                    <h1>
+                        {props.title}
+                    </h1>
+                    <p className='mx-2'>@</p>
+                    <a className='underline text-tertiary' href={props.company.link}>{props.company.name}</a>
+                </span>
+                <ul className='list-disc ml-8 font-mono'>
                     {props.children}
                 </ul>
             </div>

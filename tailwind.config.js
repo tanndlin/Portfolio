@@ -16,6 +16,11 @@ module.exports = {
         '1/20': '5%',
 
       },
+      colors: {
+        primary: '#0D6EFD',
+        secondary: '#3B82F6',
+        tertiary: 'rgb(79 70 229)',
+      },
     },
   },
   plugins: [],
