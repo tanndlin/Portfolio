@@ -50,3 +50,7 @@
 .links {
   @apply flex gap-4;
 }
+
+header>nav>ul>a:hover {
+  color: rgb(79 70 229);
+}
