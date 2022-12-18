@@ -14,6 +14,7 @@ function ProjectsPage() {
                 <Project
                     title='Budgie'
                     link='https://budgie.live'
+                    githubLink='https://github.com/tanndlin/Budgie'
                     img={budgie}
                     side='right'
                     technologies={['React', 'Firebase', 'Flutter', 'ExpressJS']}
@@ -28,7 +29,7 @@ function ProjectsPage() {
 
                 <Project
                     title='Lion'
-                    link='https://github.com/cs-discord-at-ucf/lion'
+                    githubLink='https://github.com/cs-discord-at-ucf/lion'
                     img={lionImg}
                     side='left'
                     technologies={["TypeScript", "Discord API", "MongoDB", "Docker"]}
@@ -43,7 +44,8 @@ function ProjectsPage() {
 
                 <Project
                     title='Contact Manager'
-                    link='https://github.com/tanndlin/Contact-Manager'
+                    link='/cmindex.html'
+                    githubLink='https://github.com/tanndlin/Contact-Manager'
                     img={contactManagerImg}
                     side='right'
                     technologies={["Pure HTML/CSS", "JavaScript", "SQL", "Php"]}

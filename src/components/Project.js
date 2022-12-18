@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from './Icon';
+import ExternalIcon from './ExternalIcon';
 
 function Project(props) {
     return (
@@ -23,9 +24,16 @@ function Project(props) {
                             })
                         }
                     </ul>
-                    <a className={`projectLink flex mt-4 gap-4 w-min h-min hover:fill-white`} href={props.link}>
-                        <Icon className={`w-8`} name='github' />
-                    </a>
+                    <span className='links'>
+                        <a className='projectLink hover:fill-white' href={props.link}>
+                            <Icon className='w-8' name='github' />
+                        </a>
+                        {props.link && (
+                            <a className='projectLink' href={props.link}>
+                                <ExternalIcon />
+                            </a>
+                        )}
+                    </span>
                 </footer>
                 <a
                     className={`projectDisplay max-w-[500px] absolute top-1/2 -translate-y-1/2 -z-[1] ${props.side === 'left' ? 'right-0' : 'left-0'}`}

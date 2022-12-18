@@ -38,3 +38,15 @@
     float: right;
   }
 }
+
+.projectLink {
+  @apply flex mt-4 gap-4 w-min h-min;
+
+  &>svg:hover {
+    stroke: white;
+  }
+}
+
+.links {
+  @apply flex gap-4;
+}
