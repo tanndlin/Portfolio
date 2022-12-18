@@ -9,7 +9,7 @@ import githubLogo from './img/github.png';
 import twitterLogo from './img/twitter.png';
 import linkedinLogo from './img/linkedin.png';
 
-import './App.css';
+import './App.scss';
 
 
 function App() {

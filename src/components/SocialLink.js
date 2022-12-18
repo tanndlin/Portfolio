@@ -2,7 +2,7 @@ import React from 'react';
 
 function SocialLink(props) {
     return (
-        <span className='flex w-10 socialLink border-2 cursor-pointer'>
+        <span className='flex w-12 socialLink cursor-pointer p-2 rounded-md'>
             <a className='m-auto' href={props.link} target="_blank" rel="noopener noreferrer">
                 {props.className && (
                     <img className={props.className} src={props.logo} alt={props.alt} />

@@ -3,7 +3,8 @@
 }
 
 .project:hover {
-  background-color: #5e57e0; /* Default is bg-indigo-600 */
+  background-color: #5e57e0;
+  /* Default is bg-indigo-600 */
 
   /* Make slightly bigger */
   margin-left: 0;
@@ -14,12 +15,12 @@
 
 .socialLink {
   transition: 0.2s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
-.socialLink:hover {
-  background-color: white;
-  transition: 0.2s;
-}
 
 .bg {
   background: linear-gradient(0deg, #5e57e0 0%, rgb(14 165 233) 100%);
