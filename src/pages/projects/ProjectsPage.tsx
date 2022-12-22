@@ -49,6 +49,7 @@ function ProjectsPage() {
                 <Project
                     title="Note Taker"
                     githubLink="https://github.com/tanndlin/NoteTaker"
+                    link="https://notetaker.tanndlin.com"
                     img={noteTakerImg}
                     technologies={['React', 'TypeScript']}
                 >
@@ -99,6 +100,7 @@ function ProjectsPage() {
                 <Project
                     title="DynamiCalc"
                     githubLink="https://github.com/tanndlin/DynamiCalc"
+                    link="https://dynamicalc.tanndlin.com"
                     technologies={['React', 'TypeScript']}
                     img={dynamiCalcImg}
                 >
