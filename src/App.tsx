@@ -5,35 +5,55 @@ import ProjectsPage from './pages/projects/ProjectsPage';
 import SocialLink from './components/SocialLink';
 import ExperiencePage from './pages/experience/ExperiencePage';
 import Container from './components/Container';
-import githubLogo from './img/github.png';
-import twitterLogo from './img/twitter.png';
-import linkedinLogo from './img/linkedin.png';
 
 import './App.scss';
+import Socials from './components/Socials';
 
 function App() {
     const [lastScroll, setLastScroll] = React.useState(0);
     let debounce = false;
 
+    const [header, setHeader] = React.useState<HTMLElement | null>(null);
+    const [descriptions, setDescriptions] =
+        React.useState<NodeListOf<HTMLDivElement> | null>(null);
+
+    React.useEffect(() => {
+        setHeader(document.querySelector<HTMLElement>('.header')!);
+        setDescriptions(document.querySelectorAll('.description'));
+        console.log('here');
+    }, []);
+
     const onScroll = () => {
-        if (debounce) return;
-        debounce = true;
-        const header = document.querySelector('.header')!;
+        if (!debounce && header) {
+            debounce = true;
 
-        // Check if scrolled down
-        if (window.scrollY > lastScroll) {
-            header.classList.add('hide');
+            // Check if scrolled down
+            if (window.scrollY > lastScroll) {
+                header!.classList.add('hide');
+            }
+
+            // Check if scrolled up
+            if (window.scrollY < lastScroll) {
+                header!.classList.remove('hide');
+            }
+
+            setLastScroll(window.scrollY);
+            setTimeout(() => {
+                debounce = false;
+            }, 300);
         }
 
-        // Check if scrolled up
-        if (window.scrollY < lastScroll) {
-            header.classList.remove('hide');
-        }
+        if (!descriptions) return;
 
-        setLastScroll(window.scrollY);
-        setTimeout(() => {
-            debounce = false;
-        }, 300);
+        // Animate project descriptions
+        descriptions!.forEach((description) => {
+            const rect = description.getBoundingClientRect();
+            if (rect.top < window.innerHeight || rect.bottom < 0) {
+                description.classList.add('description-show');
+            } else {
+                description.classList.remove('description-show');
+            }
+        });
     };
 
     window.addEventListener('scroll', onScroll);
@@ -42,33 +62,7 @@ function App() {
         <>
             <Header />
             <div className="bg"></div>
-            <ul
-                id="socialsContainer"
-                className="fixed flex flex-col justify-center gap-4 bottom-16 ml-10"
-            >
-                <li>
-                    <SocialLink
-                        link={'https://github.com/tanndlin'}
-                        logo={githubLogo}
-                        alt={'Github Logo'}
-                    />
-                </li>
-                <li>
-                    <SocialLink
-                        link={'https://twitter.com/Tanner_Sandlin'}
-                        logo={twitterLogo}
-                        alt={'Twitter Logo'}
-                    />
-                </li>
-                <li>
-                    <SocialLink
-                        className="w-10"
-                        link={'https://www.linkedin.com/in/tanner-sandlin/'}
-                        logo={linkedinLogo}
-                        alt={'LinkedIn Logo'}
-                    />
-                </li>
-            </ul>
+            <Socials />
             <Container>
                 <HomePage />
                 <ProjectsPage />

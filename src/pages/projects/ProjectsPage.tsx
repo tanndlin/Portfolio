@@ -20,7 +20,7 @@ function ProjectsPage() {
                     technologies={['React', 'Firebase', 'Flutter', 'ExpressJS']}
                 >
                     <p>
-                        A budgie tracker app that allows users to keep track of
+                        A budget tracker app that allows users to keep track of
                         recurring bills, grocery budgets, and one time expenses.
                         I was the lead front end eningeer for the website and
                         helped oversee the development of the expressJS API.

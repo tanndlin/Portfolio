@@ -17,11 +17,13 @@ const ExperiencePage = () => {
                     }}
                     date={'Oct 2022 - Present'}
                 >
-                    <li>
-                        C# Frontend Developer using .NET framework to create
-                        GUIs for desktop applications
+                    <li className="pr-4">
+                        C# Developer using the .NET framework to create
+                        applications for the communication and translation of
+                        data across various packet standards such as DIS and
+                        TENA
                     </li>
-                    <li>Currently obtaining security clearance</li>
+                    <li>Obtained security clearance in December of 2022</li>
                 </Experience>
             </article>
         </div>

@@ -53,6 +53,19 @@
   }
 }
 
+.description {
+  transition: 1s ease;
+  opacity: 0;
+  margin-left: 300px;
+  margin-right: 300px;
+
+  &.description-show {
+    margin-right: 0;
+    margin-left: 0;
+    opacity: 1;
+  }
+}
+
 .projectLink {
   @apply flex mt-4 gap-4 w-min h-min;
 
