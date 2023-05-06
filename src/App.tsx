@@ -22,7 +22,6 @@ function App() {
     React.useEffect(() => {
         setHeader(document.querySelector<HTMLElement>('.header')!);
         setDescriptions(document.querySelectorAll('.description'));
-        console.log('here');
     }, []);
 
     const onScroll = () => {
