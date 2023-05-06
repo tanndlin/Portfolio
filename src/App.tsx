@@ -52,7 +52,7 @@ function App() {
         // Animate project descriptions
         descriptions!.forEach((description) => {
             const rect = description.getBoundingClientRect();
-            if (rect.top < window.innerHeight || rect.bottom < 0) {
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
                 description.classList.add('description-show');
             } else {
                 description.classList.remove('description-show');
