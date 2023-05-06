@@ -91,3 +91,13 @@
     opacity: 0;
   }
 }
+
+#tracker li {
+  transition: 300ms;
+  position: relative;
+
+
+  &.active {
+    color: white;
+  }
+}

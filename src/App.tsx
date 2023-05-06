@@ -2,12 +2,12 @@ import React from 'react';
 import HomePage from './pages/home/HomePage';
 import Header from './components/Header';
 import ProjectsPage from './pages/projects/ProjectsPage';
-import SocialLink from './components/SocialLink';
 import ExperiencePage from './pages/experience/ExperiencePage';
 import Container from './components/Container';
 
 import './App.scss';
 import Socials from './components/Socials';
+import Tracker from './components/Tracker';
 
 function App() {
     const [lastScroll, setLastScroll] = React.useState(0);
@@ -17,6 +17,8 @@ function App() {
     const [descriptions, setDescriptions] =
         React.useState<NodeListOf<HTMLDivElement> | null>(null);
 
+    const [scrollHeight, setScrollHeight] = React.useState(0);
+
     React.useEffect(() => {
         setHeader(document.querySelector<HTMLElement>('.header')!);
         setDescriptions(document.querySelectorAll('.description'));
@@ -24,6 +26,8 @@ function App() {
     }, []);
 
     const onScroll = () => {
+        setScrollHeight(window.scrollY);
+
         if (!debounce && header) {
             debounce = true;
 
@@ -62,6 +66,7 @@ function App() {
         <>
             <Header />
             <div className="bg"></div>
+            <Tracker scrollHeight={scrollHeight} />
             <Socials />
             <Container>
                 <HomePage />
