@@ -69,13 +69,19 @@ const Tracker = (props: Props) => {
 
             <ul id="tracker" className="flex flex-col justify-center gap-8">
                 <li>
-                    <HomeIcon />
+                    <a href="#home">
+                        <HomeIcon />
+                    </a>
                 </li>
                 <li>
-                    <CodeIcon />
+                    <a href="#projects">
+                        <CodeIcon />
+                    </a>
                 </li>
                 <li>
-                    <WorkIcon />
+                    <a href="#experience">
+                        <WorkIcon />
+                    </a>
                 </li>
             </ul>
         </div>
