@@ -19,6 +19,7 @@
 
 .bg {
   background: linear-gradient(0deg, #5e57e0 0%, rgb(14 165 233) 90%);
+  filter: saturate(.8) brightness(.8);
   position: fixed;
   height: 100vh;
   width: 100vw;
@@ -80,6 +81,7 @@
 
 .header {
   transition: 300ms;
+  filter: saturate(.8) brightness(.8);
 
   & li:hover {
     color: rgb(79 70 229);

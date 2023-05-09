@@ -12,9 +12,15 @@ interface ProjectProps {
 }
 
 function Project(props: ProjectProps) {
+    const getHeader = () => {
+        if (props.link) return <a href={props.link}>{props.title}</a>;
+
+        return props.title;
+    };
+
     return (
         <section className="project">
-            <h1 className={`text-2xl mb-16 font-mono`}>{props.title}</h1>
+            <h1 className={`text-2xl mb-16 font-mono`}>{getHeader()}</h1>
             <div className="relative">
                 <div
                     className={`description font-mono pl-8 w-3/5 p-4 bg-gray-800 rounded-md shadow-xl`}
