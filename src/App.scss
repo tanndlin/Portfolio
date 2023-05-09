@@ -99,5 +99,23 @@
 
   &.active {
     color: white;
+
+    //use trackerAnimation
+    animation: trackerAnimation 500ms ease-in-out;
+  }
+}
+
+@keyframes trackerAnimation {
+  25% {
+    transform: rotate3d(0, 1, 0, 0deg);
+    filter: drop-shadow(1px 1px 4px white);
+  }
+
+  50% {
+    transform: rotate3d(0, 1, 0, 90deg);
+  }
+
+  100% {
+    transform: rotate3d(0, 1, 0, 0deg);
   }
 }
