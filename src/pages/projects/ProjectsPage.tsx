@@ -5,6 +5,7 @@ import contactManagerImg from '../../img/contact-manager-ss.png';
 import noteTakerImg from '../../img/note-taker-ss.png';
 import budgie from '../../img/budgie.png';
 import dynamiCalcImg from '../../img/dynamiCalc-ss.png';
+import * as Tech from './technologies/Technologies';
 
 function ProjectsPage() {
     return (
@@ -17,7 +18,12 @@ function ProjectsPage() {
                     link="https://budgie.live"
                     githubLink="https://github.com/tanndlin/Budgie"
                     img={budgie}
-                    technologies={['React', 'Firebase', 'Flutter', 'ExpressJS']}
+                    technologies={[
+                        <Tech.ReactTech />,
+                        <Tech.FirebaseTech />,
+                        <Tech.FlutterTech />,
+                        <Tech.ExpressTech />,
+                    ]}
                 >
                     <p>
                         A budget tracker app that allows users to keep track of
@@ -32,7 +38,7 @@ function ProjectsPage() {
                     githubLink="https://github.com/tanndlin/NoteTaker"
                     link="https://notetaker.tanndlin.com"
                     img={noteTakerImg}
-                    technologies={['React', 'TypeScript']}
+                    technologies={[<Tech.ReactTech />, <Tech.TypeScriptTech />]}
                 >
                     <p>
                         A note taking app that utilizes markdown to render
@@ -61,7 +67,12 @@ function ProjectsPage() {
                     link="/cmindex.html"
                     githubLink="https://github.com/tanndlin/Contact-Manager"
                     img={contactManagerImg}
-                    technologies={['Pure HTML/CSS', 'JavaScript', 'SQL', 'Php']}
+                    technologies={[
+                        <Tech.HTMLCSSTech />,
+                        <Tech.JavaScriptTech />,
+                        <Tech.SQLTech />,
+                        <Tech.PhpTech />,
+                    ]}
                 >
                     <p>
                         Sole frontend eningeer on a fullstack website
@@ -81,7 +92,7 @@ function ProjectsPage() {
                     title="DynamiCalc"
                     githubLink="https://github.com/tanndlin/DynamiCalc"
                     link="https://dynamicalc.tanndlin.com"
-                    technologies={['React', 'TypeScript']}
+                    technologies={[<Tech.ReactTech />, <Tech.TypeScriptTech />]}
                     img={dynamiCalcImg}
                 >
                     <p>
@@ -97,10 +108,10 @@ function ProjectsPage() {
                     githubLink="https://github.com/cs-discord-at-ucf/lion"
                     img={lionImg}
                     technologies={[
-                        'TypeScript',
-                        'Discord API',
-                        'MongoDB',
-                        'Docker',
+                        <Tech.TypeScriptTech />,
+                        <Tech.DiscordTech />,
+                        <Tech.MongoDBTech />,
+                        <Tech.DockerTech />,
                     ]}
                 >
                     <p>

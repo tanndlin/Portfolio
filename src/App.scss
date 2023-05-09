@@ -1,10 +1,13 @@
 .project {
-  transition: 0.2s;
-
-  filter: saturate(.1);
+  &>div a {
+    transition: 0.2s;
+    filter: saturate(.1);
+  }
 
   &:hover {
-    filter: none;
+    &>div a {
+      filter: none;
+    }
   }
 }
 

@@ -4,7 +4,7 @@ import ExternalIcon from './ExternalIcon';
 
 interface ProjectProps {
     title: string;
-    technologies: string[];
+    technologies: (string | JSX.Element)[];
     link?: string;
     githubLink: string;
     img: string;
