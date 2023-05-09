@@ -28,25 +28,6 @@ function ProjectsPage() {
                 </Project>
 
                 <Project
-                    title="Lion"
-                    githubLink="https://github.com/cs-discord-at-ucf/lion"
-                    img={lionImg}
-                    technologies={[
-                        'TypeScript',
-                        'Discord API',
-                        'MongoDB',
-                        'Docker',
-                    ]}
-                >
-                    <p>
-                        Lead Developer of Lion, a discord bot developed in
-                        TypeScript with over 30 contributors. Helps manage the
-                        UCF CS Discord, making the life of the average user and
-                        moderator easier, serving <b>10,000+</b> users.
-                    </p>
-                </Project>
-
-                <Project
                     title="Note Taker"
                     githubLink="https://github.com/tanndlin/NoteTaker"
                     link="https://notetaker.tanndlin.com"
@@ -109,6 +90,25 @@ function ProjectsPage() {
                         change after being set. DynamiCalc allows users to
                         create dynamic variables that change as the user inputs
                         new values.
+                    </p>
+                </Project>
+
+                <Project
+                    title="Lion"
+                    githubLink="https://github.com/cs-discord-at-ucf/lion"
+                    img={lionImg}
+                    technologies={[
+                        'TypeScript',
+                        'Discord API',
+                        'MongoDB',
+                        'Docker',
+                    ]}
+                >
+                    <p>
+                        Lead Developer of Lion, a discord bot developed in
+                        TypeScript with over 30 contributors. Helps manage the
+                        UCF CS Discord, making the life of the average user and
+                        moderator easier, serving <b>10,000+</b> users.
                     </p>
                 </Project>
             </article>
