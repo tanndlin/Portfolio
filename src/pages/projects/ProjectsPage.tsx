@@ -71,7 +71,6 @@ function ProjectsPage() {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            {' '}
                             <b>Check Me Out</b> (Some Features will not work as
                             I adapted this to work without a backend and API)
                         </a>
