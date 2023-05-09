@@ -14,9 +14,7 @@ const Technology = (props: TechnologyProps) => {
                 <img
                     src={img}
                     alt={name + ' logo'}
-                    width="16px"
-                    height="16px"
-                    className="m-auto mr-1"
+                    className="m-auto mr-1 max-w-[16px] max-h-[16px]"
                 />
             )}
             <p>{name}</p>
