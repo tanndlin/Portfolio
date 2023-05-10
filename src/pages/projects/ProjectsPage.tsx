@@ -5,7 +5,7 @@ import contactManagerImg from '../../img/contact-manager-ss.png';
 import noteTakerImg from '../../img/note-taker-ss.png';
 import budgie from '../../img/budgie.png';
 import dynamiCalcImg from '../../img/dynamiCalc-ss.png';
-import * as Tech from './technologies/Technologies';
+import * as Tech from './Technologies';
 
 function ProjectsPage() {
     return (

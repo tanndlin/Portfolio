@@ -12,10 +12,12 @@ interface ProjectProps {
 }
 
 function Project(props: ProjectProps) {
-    const getHeader = () => {
-        if (props.link) return <a href={props.link}>{props.title}</a>;
+    const { title, technologies, link, githubLink, img, children } = props;
 
-        return props.title;
+    const getHeader = () => {
+        if (link) return <a href={link}>{title}</a>;
+
+        return title;
     };
 
     return (
@@ -25,23 +27,23 @@ function Project(props: ProjectProps) {
                 <div
                     className={`description font-mono pl-8 w-3/5 p-4 bg-gray-800 rounded-md shadow-xl`}
                 >
-                    {props.children}
+                    {children}
                 </div>
                 <footer className={`techContainer flex flex-col mt-4`}>
                     <ul className={`flex gap-4`}>
-                        {props.technologies.map((tech, index) => {
+                        {technologies.map((tech, index) => {
                             return <li key={index}>{tech}</li>;
                         })}
                     </ul>
                     <span className="links">
                         <a
                             className="projectLink hover:fill-white"
-                            href={props.githubLink}
+                            href={githubLink}
                         >
                             <Icon className="w-8" />
                         </a>
-                        {props.link && (
-                            <a className="projectLink" href={props.link}>
+                        {link && (
+                            <a className="projectLink" href={link}>
                                 <ExternalIcon />
                             </a>
                         )}
@@ -49,13 +51,9 @@ function Project(props: ProjectProps) {
                 </footer>
                 <a
                     className={`projectDisplay max-w-[500px] absolute top-1/2 -translate-y-1/2 -z-[1]`}
-                    href={props.link ?? props.githubLink}
+                    href={link ?? githubLink}
                 >
-                    <img
-                        className="min-h-[237px]"
-                        src={props.img}
-                        alt="Project"
-                    />
+                    <img className="min-h-[237px]" src={img} alt="Project" />
                 </a>
             </div>
         </section>
