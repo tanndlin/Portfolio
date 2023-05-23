@@ -7,17 +7,17 @@ function Header() {
             <nav className="col-start-3 my-auto">
                 <ul className="flex my-auto gap-3 float-right text-lg">
                     <li>
-                        <a className="mx-4 text-md" href="#home">
+                        <a className="mx-4 text-md glow" href="#home">
                             Home
                         </a>
                     </li>
                     <li>
-                        <a className="mx-4 text-md" href="#projects">
+                        <a className="mx-4 text-md glow" href="#projects">
                             Projects
                         </a>
                     </li>
                     <li>
-                        <a className="mx-4 text-md" href="#experience">
+                        <a className="mx-4 text-md glow" href="#experience">
                             Experience
                         </a>
                     </li>
