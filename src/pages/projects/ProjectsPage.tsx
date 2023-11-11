@@ -1,21 +1,21 @@
 import React from 'react';
-import Project from './Project';
-import lionImg from '../../img/lion.png';
-import contactManagerImg from '../../img/contact-manager-ss.png';
-import noteTakerImg from '../../img/note-taker-ss.png';
 import budgie from '../../img/budgie.png';
+import contactManagerImg from '../../img/contact-manager-ss.png';
 import dynamiCalcImg from '../../img/dynamiCalc-ss.png';
+import lionImg from '../../img/lion.png';
+import noteTakerImg from '../../img/note-taker-ss.png';
+import Project from './Project';
 import * as Tech from './Technologies';
 
 function ProjectsPage() {
     return (
-        <div id="projects" className="min-h-screen flex w-full">
-            <article className="container w-full m-auto text-white flex flex-col gap-8">
-                <h1 className="text-4xl mb-24 font-mono">Personal Projects</h1>
+        <div id="projects" className="flex w-full min-h-screen">
+            <article className="container flex flex-col w-full gap-8 m-auto text-white">
+                <h1 className="mb-24 font-mono text-4xl">Personal Projects</h1>
 
                 <Project
                     title="Budgie"
-                    link="https://budgie.live"
+                    link="https://budgie.tanndlin.com"
                     githubLink="https://github.com/tanndlin/Budgie"
                     img={budgie}
                     technologies={[
