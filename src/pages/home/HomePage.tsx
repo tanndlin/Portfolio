@@ -2,15 +2,15 @@ import React from 'react';
 
 function HomePage() {
     return (
-        <div id="home" className="min-h-screen flex w-full">
+        <div id="home" className="flex w-full min-h-screen">
             <article className="m-auto text-white">
-                <h2 className="text-3xl font-mono">Hi, my name is</h2>
-                <h1 className="text-7xl font-bold opacity-70">
+                <h2 className="font-mono text-3xl">Hi, my name is</h2>
+                <h1 className="font-bold text-7xl opacity-70">
                     Tanner Sandlin
                 </h1>
-                <p className="text-xl mt-4">
-                    I am a software engineer and a student at the University of
-                    Central Florida.
+                <p className="mt-4 text-xl">
+                    I am a software engineer and a CS grad from the University
+                    of Central Florida.
                 </p>
             </article>
         </div>
