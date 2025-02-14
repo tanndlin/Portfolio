@@ -32,7 +32,24 @@ const ExperiencePage = () => {
                     }}
                     date={'June 2024 - Present'}
                 >
-                    <li className="pr-4">
+                    <li>
+                        Lead software engineer on a team of 7 developers.
+                        <ul className="mt-2 mb-4 ml-8 list-disc">
+                            <li>
+                                Scrum master for the team, leading daily standup
+                            </li>
+                            <li>
+                                Created and executed a year long test plan to
+                                create a test suite to assist our dev team in
+                                delivering robust software on-time
+                            </li>
+                            <li>
+                                Functional manager for 4 interns whom I mentored
+                                and gave tasks to
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
                         Converted many WPF applications to Blazor web-based
                         applications to allow easier containerization of our
                         deployment stack.
