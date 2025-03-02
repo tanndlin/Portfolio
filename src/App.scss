@@ -1,3 +1,15 @@
+$primary: #552B5B;
+$secondary: #88D9D0;
+$secondary: #f9f871;
+
+* {
+  color: $secondary;
+}
+
+b {
+  color: $secondary;
+}
+
 .project {
   &>div a {
     transition: 0.2s;
@@ -21,7 +33,7 @@
 }
 
 .bg {
-  background: linear-gradient(0deg, #5e57e0 0%, rgb(14 165 233) 90%);
+  background-color: $primary;
   filter: saturate(.8) brightness(.8);
   position: fixed;
   height: 100vh;
@@ -59,9 +71,6 @@
 
 .description {
   transition: 1s ease;
-  opacity: 0;
-  margin-left: 300px;
-  margin-right: 300px;
 
   &.description-show {
     margin-right: 0;

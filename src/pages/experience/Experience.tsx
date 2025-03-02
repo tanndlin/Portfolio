@@ -12,7 +12,7 @@ interface ExperienceProps {
 
 function Experience(props: ExperienceProps) {
     return (
-        <section className="flex p-3 my-10 mx-5 bg-gray-800 rounded-md justify-between shadow-2xl">
+        <section className="flex p-3 my-10 mx-5 bg-tertiary rounded-md justify-between shadow-2xl">
             <div>
                 <span className="flex text-2xl">
                     <h1>{props.title}</h1>

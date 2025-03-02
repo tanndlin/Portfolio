@@ -1,6 +1,6 @@
 import React from 'react';
-import Icon from './GitHubIcon';
 import ExternalIcon from './ExternalIcon';
+import Icon from './GitHubIcon';
 
 interface ProjectProps {
     title: string;
@@ -25,7 +25,7 @@ function Project(props: ProjectProps) {
             <h1 className={`text-2xl mb-16 font-mono`}>{getHeader()}</h1>
             <div className="relative">
                 <div
-                    className={`description font-mono pl-8 w-3/5 p-4 bg-gray-800 rounded-md shadow-xl`}
+                    className={`description font-mono pl-8 w-3/5 p-4 bg-tertiary rounded-md shadow-xl`}
                 >
                     {children}
                 </div>
