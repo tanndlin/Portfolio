@@ -5,25 +5,25 @@ import ExperiencePage from './pages/experience/ExperiencePage';
 import HomePage from './pages/home/HomePage';
 import ProjectsPage from './pages/projects/ProjectsPage';
 
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.scss';
 import Socials from './components/Socials';
-import Tracker from './components/Tracker';
 
 function App() {
     React.useState<NodeListOf<HTMLDivElement> | null>(null);
 
     return (
-        <>
+        <BrowserRouter>
             <Header />
-            <div className="bg"></div>
-            <Tracker />
             <Socials />
             <Container>
-                <HomePage />
-                <ProjectsPage />
-                <ExperiencePage />
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/projects" element={<ProjectsPage />} />
+                    <Route path="/experience" element={<ExperiencePage />} />
+                </Routes>
             </Container>
-        </>
+        </BrowserRouter>
     );
 }
 

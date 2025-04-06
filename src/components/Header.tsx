@@ -1,25 +1,32 @@
 import React from 'react';
+import AnimatedLink from './AnimatedLink';
 
 function Header() {
     return (
-        <header className="header grid h-16 text-white bg-primary fixed w-full z-50">
-            <h1 className="text-4xl my-auto ml-4">Sandlin</h1>
+        <header className="z-50 grid w-full text-white header">
+            <h1 className="my-auto ml-4 text-4xl">Sandlin</h1>
             <nav className="col-start-3 my-auto">
-                <ul className="flex my-auto gap-3 float-right text-lg">
+                <ul className="flex float-right gap-3 my-auto text-lg">
                     <li>
-                        <a className="mx-4 text-md glow" href="#home">
+                        <AnimatedLink className="mx-4 text-md glow" to="/">
                             Home
-                        </a>
+                        </AnimatedLink>
                     </li>
                     <li>
-                        <a className="mx-4 text-md glow" href="#projects">
+                        <AnimatedLink
+                            className="mx-4 text-md glow"
+                            to="/projects"
+                        >
                             Projects
-                        </a>
+                        </AnimatedLink>
                     </li>
                     <li>
-                        <a className="mx-4 text-md glow" href="#experience">
+                        <AnimatedLink
+                            className="mx-4 text-md glow"
+                            to="/experience"
+                        >
                             Experience
-                        </a>
+                        </AnimatedLink>
                     </li>
                 </ul>
             </nav>

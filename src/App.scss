@@ -1,6 +1,5 @@
-$primary: #552B5B;
-$secondary: #88D9D0;
-$secondary: #f9f871;
+@use 'variables' as *;
+
 
 * {
   color: $secondary;
@@ -31,17 +30,6 @@ b {
     transform: scale(1.2);
   }
 }
-
-.bg {
-  background-color: $primary;
-  filter: saturate(.8) brightness(.8);
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  z-index: -1000;
-}
-
-
 
 .project {
   &:nth-child(2n+1) {
@@ -92,18 +80,9 @@ b {
 }
 
 .header {
-  transition: 300ms;
-  filter: saturate(.8) brightness(.8);
-
-  // & li:hover {
-  //   color: rgb(79 70 229);
-  // }
-
-  &.hide {
-    transform: scaleY(0);
-    transform-origin: 0 0;
-    opacity: 0;
-  }
+  // filter: saturate(.8) brightness(.8);
+  flex: 0 0 64px;
+  height: 64px;
 }
 
 #tracker li {
@@ -138,5 +117,17 @@ b {
   &:hover {
     color: #4f46e5;
     text-shadow: 0 0 5px #4f46e5, 0 0 25px #4f46e5, 0 0 50px #4f46e5, 0 0 200px #4f46e5;
+  }
+}
+
+.transition-header {
+  view-transition-name: header;
+}
+
+@for $i from 1 through 10 {
+
+  #projects section.project:nth-of-type(#{$i}) div.relative,
+  #experience>article>section:nth-of-type(#{$i}) {
+    view-transition-name: box-body-#{$i};
   }
 }
