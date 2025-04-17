@@ -3,10 +3,7 @@ import Experience from './Experience';
 
 const ExperiencePage = () => {
     return (
-        <article
-            id="experience"
-            className="min-w-[400px] font-mono container p-3 m-auto"
-        >
+        <article id="experience" className="container p-3 m-auto font-mono">
             <h1 className="mb-24 text-4xl transition-header">Experience</h1>
             <Experience
                 title="SWE Intern"
