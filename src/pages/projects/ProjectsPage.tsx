@@ -18,6 +18,49 @@ function ProjectsPage() {
             </h1>
 
             <Project
+                title="TanScript"
+                githubLink="https://github.com/tanndlin/tanscript"
+                link="https://github.com/tanndlin/tanscript"
+                technologies={[<Tech.TypeScriptTech />]}
+                img={
+                    'https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg'
+                }
+            >
+                <p>
+                    An interpreted programming language that is built from
+                    scratch using TypeScript.
+                </p>
+                <br />
+                <p>
+                    <b>Key features:</b>
+                </p>
+                <ul className="list-disc">
+                    <li className="ml-4">
+                        A VM written in C that runs the TanScript Intermeadiate
+                        Langauge.
+                    </li>
+                    <li className="ml-4">
+                        Functions and lambdas that can be passed around as first
+                        class citizens.
+                    </li>
+                    <li className="ml-4">
+                        Singals implementation that allows for easy event driven
+                        mathematics using a dependency graph models to update
+                        variables only as needed.
+                    </li>
+                    <li className="ml-4">
+                        Full support for all math operators, and nested
+                        expressions with parenthesis.
+                    </li>
+                    <li className="ml-4">Support for strings</li>
+                    <li className="ml-4">
+                        Support for objects which can have methods and
+                        properties
+                    </li>
+                </ul>
+            </Project>
+
+            <Project
                 title="Budgie"
                 link="https://budgie.tanndlin.com"
                 githubLink="https://github.com/tanndlin/Budgie"
@@ -67,6 +110,20 @@ function ProjectsPage() {
             </Project>
 
             <Project
+                title="DynamiCalc"
+                githubLink="https://github.com/tanndlin/DynamiCalc"
+                link="https://dynamicalc.tanndlin.com"
+                technologies={[<Tech.ReactTech />, <Tech.TypeScriptTech />]}
+                img={dynamiCalcImg}
+            >
+                <p>
+                    Most calculators have static variables that do not change
+                    after being set. DynamiCalc allows users to create dynamic
+                    variables that change as the user inputs new values.
+                </p>
+            </Project>
+
+            <Project
                 title="Contact Manager"
                 link="/cmindex.html"
                 githubLink="https://github.com/tanndlin/Contact-Manager"
@@ -90,20 +147,6 @@ function ProjectsPage() {
                     </a>
                     (Some Features will not work as I adapted this to work
                     without a backend and API)
-                </p>
-            </Project>
-
-            <Project
-                title="DynamiCalc"
-                githubLink="https://github.com/tanndlin/DynamiCalc"
-                link="https://dynamicalc.tanndlin.com"
-                technologies={[<Tech.ReactTech />, <Tech.TypeScriptTech />]}
-                img={dynamiCalcImg}
-            >
-                <p>
-                    Most calculators have static variables that do not change
-                    after being set. DynamiCalc allows users to create dynamic
-                    variables that change as the user inputs new values.
                 </p>
             </Project>
 

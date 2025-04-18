@@ -114,8 +114,8 @@ b {
 
 .glow {
   &:hover {
-    color: #4f46e5;
-    text-shadow: 0 0 5px #4f46e5, 0 0 25px #4f46e5, 0 0 50px #4f46e5, 0 0 200px #4f46e5;
+    // filter: brightness(1.1) saturate(1.2);
+    text-shadow: 0 0 5px $secondary, 0 0 15px $secondary, 0 0 25px $secondary, 0 0 75px $secondary;
   }
 }
 

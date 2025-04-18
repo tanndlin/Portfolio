@@ -8,10 +8,13 @@ function HomePage() {
                 <h1 className="font-bold text-7xl transition-header">
                     Tanner Sandlin
                 </h1>
-                <p className="mt-4 text-xl">
-                    I am a software engineer and a CS grad from the University
-                    of Central Florida.
-                </p>
+                <div className="flex gap-2 mt-4 font-mono text-xl">
+                    <p className="glow">Software Engineer</p>
+                    <p>|</p>
+                    <p className="glow">CS @ UCF '24</p>
+                    <p>|</p>
+                    <p className="glow">HCI M.S. Student @ Georiga Tech</p>
+                </div>
             </div>
         </article>
     );
