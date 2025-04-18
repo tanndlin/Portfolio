@@ -1,4 +1,3 @@
-import React from 'react';
 import githubLogo from '../img/github.png';
 import instagramLogo from '../img/Instagram.png';
 import linkedinLogo from '../img/linkedin.png';
@@ -8,7 +7,7 @@ const Socials = () => {
     return (
         <ul
             id="socialsContainer"
-            className="flex gap-4 sm:ml-10 lg:justify-center lg:flex-col lg:fixed bottom-16"
+            className="flex gap-4 ml-10 lg:flex-col lg:sticky lg:bottom-16 max-md:mb-8"
         >
             <li>
                 <SocialLink
