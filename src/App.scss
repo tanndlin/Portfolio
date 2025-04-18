@@ -9,6 +9,14 @@ b {
   color: $secondary;
 }
 
+#pfp {
+  max-width: 150px;
+  max-height: 150px;
+  width: 30vw;
+  height: 30vw;
+  aspect-ratio: 1/1;
+}
+
 .project {
   &>div a {
     transition: 0.2s;
