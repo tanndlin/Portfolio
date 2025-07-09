@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface TechnologyProps {
     name: string;
     img?: string;
@@ -121,6 +119,15 @@ export const DockerTech = () => {
         <Technology
             name="Docker"
             img="https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png"
+        />
+    );
+};
+
+export const CPPTech = () => {
+    return (
+        <Technology
+            name="C++"
+            img="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg"
         />
     );
 };

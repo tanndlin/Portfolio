@@ -1,4 +1,3 @@
-import React from 'react';
 import budgie from '../../img/budgie.png';
 import contactManagerImg from '../../img/contact-manager-ss.png';
 import dynamiCalcImg from '../../img/dynamiCalc-ss.png';
@@ -56,6 +55,35 @@ function ProjectsPage() {
                     <li className="ml-4">
                         Support for objects which can have methods and
                         properties
+                    </li>
+                </ul>
+            </Project>
+
+            <Project
+                title="CPPRayTracer"
+                githubLink="https://github.com/tanndlin/CPPRayTracer"
+                link="https://github.com/tanndlin/CPPRayTracer"
+                technologies={[<Tech.CPPTech />]}
+                img={
+                    'https://github.com/tanndlin/CPPRayTracer/blob/master/image.png?raw=true'
+                }
+            >
+                <p>A ray tracer with no dependencies built in C++.</p>
+                <br />
+                <p>
+                    <b>Key features:</b>
+                </p>
+                <ul className="list-disc">
+                    <li className="ml-4">
+                        Uses Bounding Volume Hierarchy (BVH) to speed up to cull
+                        faces to speed up rendering.
+                    </li>
+                    <li className="ml-4">
+                        A custom ThreadPool implementaion to allow for parallel
+                        rendering of tiles to speed up rendering.
+                    </li>
+                    <li className="ml-4">
+                        Ability to load and render .obj files with
                     </li>
                 </ul>
             </Project>
