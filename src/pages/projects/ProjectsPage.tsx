@@ -26,18 +26,15 @@ function ProjectsPage() {
                 }
             >
                 <p>
-                    An interpreted programming language that is built from
-                    scratch using TypeScript.
+                    An compiled programming language that is built from scratch
+                    using TypeScript.
                 </p>
                 <br />
                 <p>
                     <b>Key features:</b>
                 </p>
                 <ul className="list-disc">
-                    <li className="ml-4">
-                        A VM written in C that runs the TanScript Intermeadiate
-                        Langauge.
-                    </li>
+                    <li className="ml-4">Compiles to AMD64 instruction set</li>
                     <li className="ml-4">
                         Functions and lambdas that can be passed around as first
                         class citizens.
@@ -65,7 +62,7 @@ function ProjectsPage() {
                 link="https://github.com/tanndlin/CPPRayTracer"
                 technologies={[<Tech.CPPTech />]}
                 img={
-                    'https://github.com/tanndlin/CPPRayTracer/blob/master/image.png?raw=true'
+                    'https://github.com/tanndlin/CPPRayTracer/blob/master/image.jpg?raw=true'
                 }
             >
                 <p>A ray tracer with no dependencies built in C++.</p>
@@ -83,7 +80,8 @@ function ProjectsPage() {
                         rendering of tiles to speed up rendering.
                     </li>
                     <li className="ml-4">
-                        Ability to load and render .obj files with
+                        Ability to load and render .obj files with support for
+                        image textures in the .mtl format
                     </li>
                 </ul>
             </Project>
