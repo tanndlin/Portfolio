@@ -1,4 +1,3 @@
-import React from 'react';
 import Experience from './Experience';
 
 const ExperiencePage = () => {
@@ -6,22 +5,7 @@ const ExperiencePage = () => {
         <article id="experience" className="container p-3 m-auto font-mono">
             <h1 className="mb-24 text-4xl transition-header">Experience</h1>
             <Experience
-                title="SWE Intern"
-                company={{
-                    name: 'GTRI',
-                    link: 'https://gtri.gatech.edu/',
-                }}
-                date={'Oct 2022 - June 2024'}
-            >
-                <li className="pr-4">
-                    C# Developer using the .NET framework to create applications
-                    for the communication and translation of data across various
-                    packet standards.
-                </li>
-                <li>Obtained security clearance in December of 2022</li>
-            </Experience>
-            <Experience
-                title="SWE"
+                title="Fullstack Software Engineer"
                 company={{
                     name: 'GTRI',
                     link: 'https://gtri.gatech.edu/',
@@ -46,9 +30,8 @@ const ExperiencePage = () => {
                     </ul>
                 </li>
                 <li>
-                    Converted many WPF applications to Blazor web-based
-                    applications to allow easier containerization of our
-                    deployment stack.
+                    Converted many WPF applications to React web applications to
+                    allow easier containerization of our deployment stack.
                 </li>
                 <li>
                     Deployed VMWare ESXi servers to host our software Suite to
@@ -58,6 +41,25 @@ const ExperiencePage = () => {
                     Created automated deployment scripts and CI/CD pipelines for
                     our software suite.
                 </li>
+            </Experience>
+            <Experience
+                title="SWE Intern"
+                company={{
+                    name: 'GTRI',
+                    link: 'https://gtri.gatech.edu/',
+                }}
+                date={'Oct 2022 - June 2024'}
+            >
+                <li className="pr-4">
+                    C# Developer using the .NET framework to create applications
+                    for the communication and translation of data across various
+                    packet standards.
+                </li>
+                <li>
+                    Created Wireshark Dissectors for many said protocols for
+                    debugging our translation applications
+                </li>
+                <li>Obtained security clearance in December of 2022</li>
             </Experience>
         </article>
     );
