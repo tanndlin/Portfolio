@@ -74,6 +74,19 @@ function ProjectsPage() {
                             Ability to load and render .obj files with support
                             for image textures in the .mtl format
                         </li>
+                        <li className="ml-4">
+                            I have also rewritten the ray tracer in Rust to help
+                            learn the langauge. You can see it{' '}
+                            <b>
+                                <a
+                                    href="https://github.com/tanndlin/RustRayTracer"
+                                    className="glow"
+                                >
+                                    here
+                                </a>
+                            </b>
+                            .
+                        </li>
                     </ul>
                 </Project>
 
