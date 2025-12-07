@@ -1,5 +1,4 @@
 import budgie from '../../img/budgie.png';
-import contactManagerImg from '../../img/contact-manager-ss.png';
 import dynamiCalcImg from '../../img/dynamiCalc-ss.png';
 import lionImg from '../../img/lion.png';
 import noteTakerImg from '../../img/note-taker-ss.png';
@@ -135,33 +134,6 @@ function ProjectsPage() {
                         change after being set. DynamiCalc allows users to
                         create dynamic variables that change as the user inputs
                         new values.
-                    </p>
-                </Project>
-
-                <Project
-                    title="Contact Manager"
-                    link="/cmindex.html"
-                    githubLink="https://github.com/tanndlin/Contact-Manager"
-                    img={contactManagerImg}
-                    technologies={[
-                        <Tech.HTMLCSSTech />,
-                        <Tech.JavaScriptTech />,
-                        <Tech.SQLTech />,
-                        <Tech.PhpTech />,
-                    ]}
-                >
-                    <p>
-                        Sole frontend eningeer on a fullstack website
-                        application for managing a user's contacts <br />
-                        <a
-                            href="/cmindex.html"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <b>Check Me Out</b>{' '}
-                        </a>
-                        (Some Features will not work as I adapted this to work
-                        without a backend and API)
                     </p>
                 </Project>
 
