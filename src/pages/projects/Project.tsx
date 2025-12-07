@@ -4,6 +4,7 @@ import Icon from './GitHubIcon';
 
 interface ProjectProps {
     title: string;
+    overview?: string;
     technologies: (string | JSX.Element)[];
     link?: string;
     githubLink: string;
@@ -15,48 +16,67 @@ function Project(props: ProjectProps) {
     const { title, technologies, link, githubLink, img, children } = props;
 
     const getHeader = () => {
-        if (link) return <a href={link}>{title}</a>;
-
-        return title;
+        const realLink = link ?? githubLink;
+        return (
+            <a className="glow" href={realLink}>
+                {title}
+            </a>
+        );
     };
 
     return (
-        <section className="project">
-            <h1 className={`text-2xl mb-16 font-mono`}>{getHeader()}</h1>
-            <div className="relative">
-                <div
-                    className={`description font-mono pl-8 w-3/5 p-4 bg-tertiary rounded-md shadow-xl`}
-                >
-                    {children}
+        <section className="relative project">
+            <div className="w-3/5 pb-4 project-card z-[1] flex flex-col gap-4 relative">
+                <header className="p-4 font-mono rounded-t-2xl bg-tertiary project-header">
+                    <h1 className="text-2xl">{getHeader()}</h1>
+                    <p>{props.overview}</p>
+                </header>
+                <div className="flex flex-col gap-4 px-4">
+                    <div className="font-mono description">{children}</div>
+                    <TechContainer
+                        technologies={technologies}
+                        githubLink={githubLink}
+                        link={link}
+                    />
                 </div>
-                <footer className={`techContainer flex flex-col mt-4`}>
-                    <ul className={`flex gap-4`}>
-                        {technologies.map((tech, index) => {
-                            return <li key={index}>{tech}</li>;
-                        })}
-                    </ul>
-                    <span className="links">
-                        <a
-                            className="projectLink hover:fill-white"
-                            href={githubLink}
-                        >
-                            <Icon className="w-8" />
-                        </a>
-                        {link && (
-                            <a className="projectLink" href={link}>
-                                <ExternalIcon />
-                            </a>
-                        )}
-                    </span>
-                </footer>
-                <a
-                    className={`projectDisplay max-w-[500px] absolute top-1/2 -translate-y-1/2 -z-[1]`}
-                    href={link ?? githubLink}
-                >
-                    <img className="min-h-[237px]" src={img} alt="Project" />
-                </a>
             </div>
+            <a
+                className="absolute top-0 h-full projectDisplay"
+                href={link ?? githubLink}
+            >
+                <img className="w-full h-full" src={img} alt="Project" />
+            </a>
         </section>
+    );
+}
+
+function TechContainer({
+    technologies,
+    githubLink,
+    link,
+}: {
+    technologies: (string | JSX.Element)[];
+    githubLink: string;
+    link?: string;
+}) {
+    return (
+        <footer className="flex justify-between">
+            <ul className="flex gap-4">
+                {technologies.map((tech, index) => {
+                    return <li key={index}>{tech}</li>;
+                })}
+            </ul>
+            <span className="flex gap-4 ">
+                {link && (
+                    <a className="project-link" href={link}>
+                        <ExternalIcon />
+                    </a>
+                )}
+                <a className="project-link hover:fill-white" href={githubLink}>
+                    <Icon className="w-6 h-6" />
+                </a>
+            </span>
+        </footer>
     );
 }
 

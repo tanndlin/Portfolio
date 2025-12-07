@@ -4,9 +4,7 @@ function HomePage() {
             <div className="mx-auto">
                 <div className="flex">
                     <div>
-                        <h2 className="mt-8 font-mono text-3xl">
-                            Hi, my name is
-                        </h2>
+                        <h2 className="mt-8  text-3xl">Hi, my name is</h2>
                         <h1 className="font-bold text-7xl transition-header">
                             Tanner Sandlin
                         </h1>
@@ -18,7 +16,7 @@ function HomePage() {
                         alt="Profile Picture"
                     />
                 </div>
-                <div className="flex gap-2 mt-4 font-mono text-xl max-sm:flex-col">
+                <div className="flex gap-2 mt-4  text-xl max-sm:flex-col">
                     <p className="glow">Software Engineer</p>
                     <p className="max-sm:hidden">|</p>
                     <p className="glow">CS @ UCF '24</p>

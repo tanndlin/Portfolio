@@ -14,9 +14,10 @@ module.exports = {
                 '1/20': '5%',
             },
             colors: {
-                primary: '#552B5B',
-                secondary: '#f9f871',
-                tertiary: '#3A1B42',
+                primary: '#111',
+                secondary: '#222',
+                tertiary: '#333',
+                'text-color': '#f9f871',
             },
         },
     },

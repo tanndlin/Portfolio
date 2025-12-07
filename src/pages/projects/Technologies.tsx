@@ -7,7 +7,7 @@ const Technology = (props: TechnologyProps) => {
     const { name, img } = props;
 
     return (
-        <div className="flex">
+        <div className="flex gap-1 px-2 py-1 technology-item">
             {img && (
                 <img
                     src={img}
@@ -128,6 +128,15 @@ export const CPPTech = () => {
         <Technology
             name="C++"
             img="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg"
+        />
+    );
+};
+
+export const RustTech = () => {
+    return (
+        <Technology
+            name="Rust"
+            img="https://www.rust-lang.org/logos/rust-logo-512x512.png"
         />
     );
 };

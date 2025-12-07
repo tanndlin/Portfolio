@@ -2,11 +2,11 @@
 
 
 * {
-  color: $secondary;
+  color: $text-color;
 }
 
 b {
-  color: $secondary;
+  color: $text-color;
 }
 
 #pfp {
@@ -17,16 +17,11 @@ b {
   aspect-ratio: 1/1;
 }
 
-.project {
-  &>div a {
-    transition: 0.2s;
-    filter: saturate(.1);
-  }
+.projectDisplay {
+  transition: 0.25s;
 
   &:hover {
-    &>div a {
-      filter: none;
-    }
+    transform: scale(1.1);
   }
 }
 
@@ -50,45 +45,50 @@ b {
       left: 0;
     }
 
-    &>h1 {
-      @apply text-right;
-    }
-
-    & .description {
+    & .project-card {
       margin-left: auto;
     }
-
-    & .techContainer {
-      float: right;
-    }
   }
 }
 
-.description {
-  transition: 1s ease;
-
-  &.description-show {
-    margin-right: 0;
-    margin-left: 0;
-    opacity: 1;
-  }
+.project-card {
+  background: $secondary;
+  box-shadow: $shadow-l;
+  border-radius: 16px
 }
 
-.projectLink {
-  @apply flex mt-4 gap-4 w-min h-min;
+.project-header {
+  box-shadow: $shadow-m;
+}
+
+.project-link,
+.technology-item {
+  background-color: $tertiary;
+  box-shadow: $shadow-s;
+  border-radius: 16px;
+}
+
+.project-link {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  border-radius: 20px;
+
+  &>svg {
+    margin: auto;
+  }
 
   &>svg:hover {
     stroke: white;
   }
 }
 
-.links {
-  @apply flex gap-4;
+.header {
+  flex: 0 0 64px;
 }
 
-.header {
-  // filter: saturate(.8) brightness(.8);
-  flex: 0 0 64px;
+.header-button {
+  box-shadow: $shadow-s
 }
 
 #tracker li {
@@ -104,25 +104,10 @@ b {
   }
 }
 
-@keyframes trackerAnimation {
-  25% {
-    transform: rotate3d(0, 1, 0, 0deg);
-    filter: drop-shadow(1px 1px 4px white);
-  }
-
-  50% {
-    transform: rotate3d(0, 1, 0, 90deg);
-  }
-
-  100% {
-    transform: rotate3d(0, 1, 0, 0deg);
-  }
-}
-
 .glow {
   &:hover {
     // filter: brightness(1.1) saturate(1.2);
-    text-shadow: 0 0 5px $secondary, 0 0 15px $secondary, 0 0 25px $secondary, 0 0 75px $secondary;
+    text-shadow: 0 0 5px $text-color, 0 0 15px $text-color, 0 0 25px $text-color, 0 0 75px $text-color;
   }
 }
 
@@ -132,8 +117,18 @@ b {
 
 @for $i from 1 through 10 {
 
-  #projects section.project:nth-of-type(#{$i}) div.relative,
+  #projects section.project:nth-of-type(#{$i}) .project-card,
   #experience>article>section:nth-of-type(#{$i}) {
     view-transition-name: box-body-#{$i};
   }
+}
+
+.experience-card {
+  box-shadow: $shadow-l;
+  background-color: $tertiary;
+  border-radius: 16px;
+}
+
+.experience-header {
+  box-shadow: $shadow-m;
 }
