@@ -5,12 +5,22 @@ const ExperiencePage = () => {
         <article id="experience" className="container p-3 m-auto font-mono">
             <h1 className="mb-24 text-4xl transition-header">Experience</h1>
             <Experience
+                title="Software Engineer"
+                company={{
+                    name: 'CFX',
+                    link: 'https://www.cfxway.com/',
+                }}
+                date={'Dec 2025 - Present'}
+            >
+                <li className="pr-4">Software Engneer at CFX</li>
+            </Experience>
+            <Experience
                 title="Fullstack Software Engineer"
                 company={{
                     name: 'GTRI',
                     link: 'https://gtri.gatech.edu/',
                 }}
-                date={'June 2024 - Present'}
+                date={'June 2024 - Dec 2025'}
             >
                 <li>
                     Lead software engineer on a team of 7 developers.
