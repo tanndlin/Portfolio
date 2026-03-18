@@ -5,14 +5,32 @@ const ExperiencePage = () => {
         <article id="experience" className="container p-3 m-auto font-mono">
             <h1 className="mb-24 text-4xl transition-header">Experience</h1>
             <Experience
-                title="Software Engineer"
+                title="Software Engineer II"
                 company={{
                     name: 'CFX',
                     link: 'https://www.cfxway.com/',
                 }}
                 date={'Dec 2025 - Present'}
             >
-                <li className="pr-4">Software Engneer at CFX</li>
+                <li>
+                    Security Engineer responsible for addressing security
+                    vulnerabilities identified by static code analysis tools and
+                    penetration testing.
+                </li>
+                <li>
+                    Collaborate with development teams to implement secure
+                    coding practices and ensure compliance with industry
+                    standards.
+                </li>
+                <li>
+                    Conduct regular security assessments and penetration testing
+                    to identify and mitigate potential vulnerabilities in
+                    software applications to stay compliant with PCI DSS
+                </li>
+                <li>
+                    Apply security patches to running production servers to
+                    minimize downtime and mitigate vulnerabilities
+                </li>
             </Experience>
             <Experience
                 title="Fullstack Software Engineer"
