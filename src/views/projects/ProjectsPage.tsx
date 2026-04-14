@@ -1,7 +1,3 @@
-import budgie from '../../img/budgie.png';
-import dynamiCalcImg from '../../img/dynamiCalc-ss.png';
-import lionImg from '../../img/lion.png';
-import noteTakerImg from '../../img/note-taker-ss.png';
 import Project from './Project';
 import * as Tech from './Technologies';
 
@@ -16,7 +12,7 @@ function ProjectsPage() {
                     title="TanScript"
                     overview="A compiled programming language built from scratch using TypeScript"
                     githubLink="https://github.com/tanndlin/tanscript"
-                    technologies={[<Tech.TypeScriptTech />]}
+                    technologies={[<Tech.TypeScriptTech key="ts" />]}
                     img={
                         'https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg'
                     }
@@ -53,7 +49,10 @@ function ProjectsPage() {
                     title="CPPRayTracer"
                     overview="A ray tracer with no dependencies built in C++"
                     githubLink="https://github.com/tanndlin/CPPRayTracer"
-                    technologies={[<Tech.CPPTech />, <Tech.RustTech />]}
+                    technologies={[
+                        <Tech.CPPTech key="cpp" />,
+                        <Tech.RustTech key="rust" />,
+                    ]}
                     img={
                         'https://github.com/tanndlin/CPPRayTracer/blob/master/image.jpg?raw=true'
                     }
@@ -94,12 +93,12 @@ function ProjectsPage() {
                     title="Budgie"
                     link="https://budgie.tanndlin.com"
                     githubLink="https://github.com/tanndlin/Budgie"
-                    img={budgie}
+                    img={'/budgie.png'}
                     technologies={[
-                        <Tech.ReactTech />,
-                        <Tech.FirebaseTech />,
-                        <Tech.FlutterTech />,
-                        <Tech.ExpressTech />,
+                        <Tech.ReactTech key="react" />,
+                        <Tech.FirebaseTech key="firebase" />,
+                        <Tech.FlutterTech key="flutter" />,
+                        <Tech.ExpressTech key="express" />,
                     ]}
                 >
                     <p>
@@ -115,8 +114,11 @@ function ProjectsPage() {
                     overview="A note taking app that utilizes markdown to render styled notes"
                     githubLink="https://github.com/tanndlin/NoteTaker"
                     link="https://notetaker.tanndlin.com"
-                    img={noteTakerImg}
-                    technologies={[<Tech.ReactTech />, <Tech.TypeScriptTech />]}
+                    img={'/note-taker-ss.png'}
+                    technologies={[
+                        <Tech.ReactTech key="react" />,
+                        <Tech.TypeScriptTech key="ts" />,
+                    ]}
                 >
                     <ul className="list-disc">
                         <li className="ml-4">
@@ -139,8 +141,11 @@ function ProjectsPage() {
                     title="DynamiCalc"
                     githubLink="https://github.com/tanndlin/DynamiCalc"
                     link="https://dynamicalc.tanndlin.com"
-                    technologies={[<Tech.ReactTech />, <Tech.TypeScriptTech />]}
-                    img={dynamiCalcImg}
+                    technologies={[
+                        <Tech.ReactTech key="react" />,
+                        <Tech.TypeScriptTech key="ts" />,
+                    ]}
+                    img={'/dynamiCalc-ss.png'}
                 >
                     <p>
                         Most calculators have static variables that do not
@@ -153,12 +158,12 @@ function ProjectsPage() {
                 <Project
                     title="Lion"
                     githubLink="https://github.com/cs-discord-at-ucf/lion"
-                    img={lionImg}
+                    img={'/lion.png'}
                     technologies={[
-                        <Tech.TypeScriptTech />,
-                        <Tech.DiscordTech />,
-                        <Tech.MongoDBTech />,
-                        <Tech.DockerTech />,
+                        <Tech.TypeScriptTech key="ts" />,
+                        <Tech.DiscordTech key="discord" />,
+                        <Tech.MongoDBTech key="mongo" />,
+                        <Tech.DockerTech key="docker" />,
                     ]}
                 >
                     <p>

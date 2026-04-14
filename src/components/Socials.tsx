@@ -1,6 +1,3 @@
-import githubLogo from '../img/github.png';
-import instagramLogo from '../img/Instagram.png';
-import linkedinLogo from '../img/linkedin.png';
 import SocialLink from './SocialLink';
 
 const Socials = () => {
@@ -12,7 +9,7 @@ const Socials = () => {
             <li>
                 <SocialLink
                     link={'https://github.com/tanndlin'}
-                    logo={githubLogo}
+                    logo={'/github.png'}
                     alt={'Github Logo'}
                 />
             </li>
@@ -20,7 +17,7 @@ const Socials = () => {
                 <SocialLink
                     className="w-10"
                     link={'https://www.linkedin.com/in/tanner-sandlin/'}
-                    logo={linkedinLogo}
+                    logo={'/linkedin.png'}
                     alt={'LinkedIn Logo'}
                 />
             </li>
@@ -28,7 +25,7 @@ const Socials = () => {
                 <SocialLink
                     className="w-10"
                     link={'https://www.instagram.com/tanndlin'}
-                    logo={instagramLogo}
+                    logo={'/Instagram.png'}
                     alt={'Instagram Logo'}
                 />
             </li>

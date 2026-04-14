@@ -10,7 +10,12 @@
 /coverage
 
 # production
-/build
+/out
+
+# next.js
+.next
+next-env.d.ts
+*.tsbuildinfo
 
 # misc
 .DS_Store

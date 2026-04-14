@@ -1,4 +1,4 @@
-import React from 'react';
+import type { ReactNode } from 'react';
 
 interface ExperienceProps {
     title: string;
@@ -7,7 +7,7 @@ interface ExperienceProps {
         link: string;
     };
     date: string;
-    children: React.ReactNode;
+    children: ReactNode;
 }
 
 function Experience(props: ExperienceProps) {

@@ -1,4 +1,4 @@
-import AnimatedLink from './AnimatedLink';
+import Link from 'next/link';
 
 function Header() {
     return (
@@ -18,11 +18,11 @@ function Header() {
 function NavItem(props: { to: string; title: string }) {
     return (
         <li>
-            <AnimatedLink className="text-md glow" to={props.to}>
-                <p className="px-4 py-1 rounded-full  header-button bg-tertiary">
+            <Link className="text-md glow" href={props.to}>
+                <p className="px-4 py-1 rounded-full header-button bg-tertiary">
                     {props.title}
                 </p>
-            </AnimatedLink>
+            </Link>
         </li>
     );
 }

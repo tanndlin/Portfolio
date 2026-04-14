@@ -1,34 +1,31 @@
-import React from 'react';
+import type { ReactNode } from 'react';
 import ExternalIcon from './ExternalIcon';
 import Icon from './GitHubIcon';
 
 interface ProjectProps {
     title: string;
     overview?: string;
-    technologies: (string | JSX.Element)[];
+    technologies: ReactNode[];
     link?: string;
     githubLink: string;
     img: string;
-    children: React.ReactNode;
+    children: ReactNode;
 }
 
 function Project(props: ProjectProps) {
     const { title, technologies, link, githubLink, img, children } = props;
 
-    const getHeader = () => {
-        const realLink = link ?? githubLink;
-        return (
-            <a className="glow" href={realLink}>
-                {title}
-            </a>
-        );
-    };
+    const realLink = link ?? githubLink;
 
     return (
         <section className="relative project">
             <div className="w-3/5 pb-4 project-card z-[1] flex flex-col gap-4 relative">
                 <header className="p-4 font-mono rounded-t-2xl bg-tertiary project-header">
-                    <h1 className="text-2xl">{getHeader()}</h1>
+                    <h1 className="text-2xl">
+                        <a className="glow" href={realLink}>
+                            {title}
+                        </a>
+                    </h1>
                     <p>{props.overview}</p>
                 </header>
                 <div className="flex flex-col gap-4 px-4">
@@ -55,7 +52,7 @@ function TechContainer({
     githubLink,
     link,
 }: {
-    technologies: (string | JSX.Element)[];
+    technologies: ReactNode[];
     githubLink: string;
     link?: string;
 }) {
@@ -66,7 +63,7 @@ function TechContainer({
                     return <li key={index}>{tech}</li>;
                 })}
             </ul>
-            <span className="flex gap-4 ">
+            <span className="flex gap-4">
                 {link && (
                     <a className="project-link" href={link}>
                         <ExternalIcon />

@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface SocialLinkProps {
     link: string;
     logo: string;
@@ -16,14 +14,11 @@ function SocialLink(props: SocialLinkProps) {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                {props.className && (
-                    <img
-                        className={props.className}
-                        src={props.logo}
-                        alt={props.alt}
-                    />
-                )}
-                {!props.className && <img src={props.logo} alt={props.alt} />}
+                <img
+                    className={props.className}
+                    src={props.logo}
+                    alt={props.alt}
+                />
             </a>
         </span>
     );

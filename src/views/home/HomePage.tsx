@@ -11,7 +11,7 @@ function HomePage() {
                     </div>
                     <img
                         id="pfp"
-                        className="mt-auto ml-auto rounded-circle brightness-110"
+                        className="mt-auto ml-auto rounded-full brightness-110"
                         src="/pfp.jpg"
                         alt="Profile Picture"
                     />

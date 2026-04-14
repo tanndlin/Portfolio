@@ -1,7 +1,7 @@
-import React from 'react';
+import type { ReactNode } from 'react';
 
 interface ContainerProps {
-    children: React.ReactNode;
+    children: ReactNode;
 }
 
 const Container = (props: ContainerProps) => {
