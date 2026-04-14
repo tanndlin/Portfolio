@@ -9,7 +9,7 @@ const Socials = () => {
             <li>
                 <SocialLink
                     link={'https://github.com/tanndlin'}
-                    logo={'/github.png'}
+                    logo={'/github.webp'}
                     alt={'Github Logo'}
                 />
             </li>
@@ -17,7 +17,7 @@ const Socials = () => {
                 <SocialLink
                     className="w-10"
                     link={'https://www.linkedin.com/in/tanner-sandlin/'}
-                    logo={'/linkedin.png'}
+                    logo={'/linkedin.webp'}
                     alt={'LinkedIn Logo'}
                 />
             </li>
@@ -25,7 +25,7 @@ const Socials = () => {
                 <SocialLink
                     className="w-10"
                     link={'https://www.instagram.com/tanndlin'}
-                    logo={'/Instagram.png'}
+                    logo={'/Instagram.webp'}
                     alt={'Instagram Logo'}
                 />
             </li>

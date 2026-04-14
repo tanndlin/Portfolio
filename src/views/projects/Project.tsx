@@ -41,7 +41,7 @@ function Project(props: ProjectProps) {
                 className="absolute top-0 h-full projectDisplay"
                 href={link ?? githubLink}
             >
-                <img className="w-full h-full" src={img} alt="Project" />
+                <img className="w-full h-full" src={img} alt="Project" loading="lazy" decoding="async" />
             </a>
         </section>
     );

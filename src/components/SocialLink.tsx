@@ -18,6 +18,8 @@ function SocialLink(props: SocialLinkProps) {
                     className={props.className}
                     src={props.logo}
                     alt={props.alt}
+                    loading="lazy"
+                    decoding="async"
                 />
             </a>
         </span>

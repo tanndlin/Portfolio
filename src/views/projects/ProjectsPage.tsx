@@ -93,7 +93,7 @@ function ProjectsPage() {
                     title="Budgie"
                     link="https://budgie.tanndlin.com"
                     githubLink="https://github.com/tanndlin/Budgie"
-                    img={'/budgie.png'}
+                    img={'/budgie.webp'}
                     technologies={[
                         <Tech.ReactTech key="react" />,
                         <Tech.FirebaseTech key="firebase" />,
@@ -114,7 +114,7 @@ function ProjectsPage() {
                     overview="A note taking app that utilizes markdown to render styled notes"
                     githubLink="https://github.com/tanndlin/NoteTaker"
                     link="https://notetaker.tanndlin.com"
-                    img={'/note-taker-ss.png'}
+                    img={'/note-taker-ss.webp'}
                     technologies={[
                         <Tech.ReactTech key="react" />,
                         <Tech.TypeScriptTech key="ts" />,
@@ -145,7 +145,7 @@ function ProjectsPage() {
                         <Tech.ReactTech key="react" />,
                         <Tech.TypeScriptTech key="ts" />,
                     ]}
-                    img={'/dynamiCalc-ss.png'}
+                    img={'/dynamiCalc-ss.webp'}
                 >
                     <p>
                         Most calculators have static variables that do not
@@ -158,7 +158,7 @@ function ProjectsPage() {
                 <Project
                     title="Lion"
                     githubLink="https://github.com/cs-discord-at-ucf/lion"
-                    img={'/lion.png'}
+                    img={'/lion.webp'}
                     technologies={[
                         <Tech.TypeScriptTech key="ts" />,
                         <Tech.DiscordTech key="discord" />,

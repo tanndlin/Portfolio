@@ -14,6 +14,8 @@ function HomePage() {
                         className="mt-auto ml-auto rounded-full brightness-110"
                         src="/pfp.jpg"
                         alt="Profile Picture"
+                        fetchPriority="high"
+                        decoding="async"
                     />
                 </div>
                 <div className="flex gap-2 mt-4  text-xl max-sm:flex-col">
