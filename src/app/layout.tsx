@@ -1,9 +1,16 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import { Inter } from 'next/font/google';
 import './globals.scss';
 import Container from '../components/Container';
 import Header from '../components/Header';
 import Socials from '../components/Socials';
+
+const inter = Inter({
+    subsets: ['latin'],
+    variable: '--font-inter',
+    display: 'swap',
+});
 
 export const metadata: Metadata = {
     title: 'Tanner Sandlin',
@@ -12,10 +19,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
-        <html lang="en">
+        <html lang="en" className={inter.variable}>
             <head>
                 <link rel="icon" href="/pfp.jpg" />
-                <meta name="theme-color" content="#111111" />
+                <meta name="theme-color" content="#0f172a" />
                 {/* eslint-disable-next-line @next/next/no-sync-scripts */}
                 <script
                     async

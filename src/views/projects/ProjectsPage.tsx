@@ -3,11 +3,11 @@ import * as Tech from './Technologies';
 
 function ProjectsPage() {
     return (
-        <article id="projects" className="container flex-1 w-full m-auto">
-            <h1 className="mb-24 text-4xl transition-header">
+        <article id="projects" className="container flex-1 w-full m-auto py-12">
+            <h1 className="section-title mb-16 transition-header">
                 Personal Projects
             </h1>
-            <div className="flex flex-col gap-32">
+            <div className="flex flex-col gap-24">
                 <Project
                     title="TanScript"
                     overview="A compiled programming language built from scratch using TypeScript"
@@ -20,7 +20,7 @@ function ProjectsPage() {
                     <p>
                         <b>Key features:</b>
                     </p>
-                    <ul className="list-disc">
+                    <ul className="list-disc mt-1">
                         <li className="ml-4">
                             Compiles to AMD64 instruction set
                         </li>
@@ -60,7 +60,7 @@ function ProjectsPage() {
                     <p>
                         <b>Key features:</b>
                     </p>
-                    <ul className="list-disc">
+                    <ul className="list-disc mt-1">
                         <li className="ml-4">
                             Uses Bounding Volume Hierarchy (BVH) to speed up to
                             cull faces to speed up rendering.
@@ -79,7 +79,7 @@ function ProjectsPage() {
                             <b>
                                 <a
                                     href="https://github.com/tanndlin/RustRayTracer"
-                                    className="glow"
+                                    className="glow accent-text"
                                 >
                                     here
                                 </a>
@@ -120,7 +120,7 @@ function ProjectsPage() {
                         <Tech.TypeScriptTech key="ts" />,
                     ]}
                 >
-                    <ul className="list-disc">
+                    <ul className="list-disc mt-1">
                         <li className="ml-4">
                             Takes advantage of hyperlinks to quickly reference
                             other notes, and allows for easy navigation between

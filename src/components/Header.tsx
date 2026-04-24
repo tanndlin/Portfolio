@@ -1,27 +1,42 @@
+'use client';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 function Header() {
     return (
-        <header className="grid px-4 header bg-[#222] mb-4">
-            <h1 className="my-auto text-4xl">Sandlin</h1>
-            <nav className="col-start-3 my-auto sm:ml-auto max-sm:text-right">
-                <ul className="flex my-auto text-lg sm:gap-8 max-sm:flex-col">
-                    <NavItem to="/" title="Home" />
-                    <NavItem to="/projects" title="Projects" />
-                    <NavItem to="/experience" title="Experience" />
-                </ul>
-            </nav>
+        <header className="sticky top-0 z-50 header header-nav">
+            <div className="flex items-center justify-between h-full max-w-5xl px-6 mx-auto">
+                <Link
+                    href="/"
+                    className="text-xl font-bold tracking-tight transition-header"
+                >
+                    <span className="accent-text">T</span>anner Sandlin
+                </Link>
+                <nav>
+                    <ul className="flex gap-1">
+                        <NavItem to="/" title="Home" />
+                        <NavItem to="/projects" title="Projects" />
+                        <NavItem to="/experience" title="Experience" />
+                    </ul>
+                </nav>
+            </div>
         </header>
     );
 }
 
 function NavItem(props: { to: string; title: string }) {
+    const pathname = usePathname();
+    const normalizedTo = props.to.endsWith('/') ? props.to : props.to + '/';
+    const normalizedPathname = pathname.endsWith('/') ? pathname : pathname + '/';
+    const isActive = normalizedPathname === normalizedTo;
+
     return (
         <li>
-            <Link className="text-md glow" href={props.to}>
-                <p className="px-4 py-1 rounded-full header-button bg-tertiary">
-                    {props.title}
-                </p>
+            <Link
+                href={props.to}
+                className={`nav-link px-4 py-2 rounded-lg text-sm font-medium block ${isActive ? 'active' : ''}`}
+            >
+                {props.title}
             </Link>
         </li>
     );

@@ -3,21 +3,22 @@ module.exports = {
     content: ['./src/**/*.{js,jsx,ts,tsx}'],
     theme: {
         extend: {
+            fontFamily: {
+                sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+            },
             height: {
                 'minus-header': 'calc(100vh - 4rem)',
             },
             minHeight: {
                 'minus-header': 'calc(100vh - 4rem)',
             },
-            width: {
-                '1/10': '10%',
-                '1/20': '5%',
-            },
             colors: {
-                primary: '#111',
-                secondary: '#222',
-                tertiary: '#333',
-                'text-color': '#f9f871',
+                primary: '#0f172a',
+                secondary: '#1e293b',
+                tertiary: '#334155',
+                'text-color': '#f1f5f9',
+                muted: '#94a3b8',
+                accent: '#2dd4bf',
             },
         },
     },

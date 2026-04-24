@@ -2,8 +2,10 @@ import Experience from './Experience';
 
 const ExperiencePage = () => {
     return (
-        <article id="experience" className="container p-3 m-auto font-mono">
-            <h1 className="mb-24 text-4xl transition-header">Experience</h1>
+        <article id="experience" className="container p-3 m-auto py-12">
+            <h1 className="section-title mb-16 transition-header">
+                Experience
+            </h1>
             <Experience
                 title="Software Engineer II"
                 company={{

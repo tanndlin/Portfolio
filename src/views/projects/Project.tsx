@@ -19,17 +19,26 @@ function Project(props: ProjectProps) {
 
     return (
         <section className="relative project">
-            <div className="w-3/5 pb-4 project-card z-[1] flex flex-col gap-4 relative">
-                <header className="p-4 font-mono rounded-t-2xl bg-tertiary project-header">
-                    <h1 className="text-2xl">
-                        <a className="glow" href={realLink}>
+            <div className="w-3/5 project-card z-[1] flex flex-col relative">
+                <header className="px-6 py-4 project-header">
+                    <h1 className="text-xl font-semibold">
+                        <a
+                            className="hover:accent-text glow transition-colors"
+                            href={realLink}
+                        >
                             {title}
                         </a>
                     </h1>
-                    <p>{props.overview}</p>
+                    {props.overview && (
+                        <p className="text-muted text-sm mt-1">
+                            {props.overview}
+                        </p>
+                    )}
                 </header>
-                <div className="flex flex-col gap-4 px-4">
-                    <div className="font-mono description">{children}</div>
+                <div className="flex flex-col gap-4 px-6 py-4 flex-1">
+                    <div className="font-mono text-sm text-muted leading-relaxed">
+                        {children}
+                    </div>
                     <TechContainer
                         technologies={technologies}
                         githubLink={githubLink}
@@ -41,7 +50,13 @@ function Project(props: ProjectProps) {
                 className="absolute top-0 h-full projectDisplay"
                 href={link ?? githubLink}
             >
-                <img className="w-full h-full" src={img} alt="Project" loading="lazy" decoding="async" />
+                <img
+                    className="w-full h-full object-cover"
+                    src={img}
+                    alt="Project"
+                    loading="lazy"
+                    decoding="async"
+                />
             </a>
         </section>
     );
@@ -57,20 +72,20 @@ function TechContainer({
     link?: string;
 }) {
     return (
-        <footer className="flex justify-between">
-            <ul className="flex gap-4">
+        <footer className="flex justify-between items-center mt-auto pt-2">
+            <ul className="flex flex-wrap gap-2">
                 {technologies.map((tech, index) => {
                     return <li key={index}>{tech}</li>;
                 })}
             </ul>
-            <span className="flex gap-4">
+            <span className="flex gap-2 shrink-0">
                 {link && (
                     <a className="project-link" href={link}>
                         <ExternalIcon />
                     </a>
                 )}
                 <a className="project-link hover:fill-white" href={githubLink}>
-                    <Icon className="w-6 h-6" />
+                    <Icon className="w-5 h-5" />
                 </a>
             </span>
         </footer>
