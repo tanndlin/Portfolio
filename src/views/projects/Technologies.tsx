@@ -42,7 +42,7 @@ export const FlutterTech = () => {
     return (
         <Technology
             name="Flutter"
-            img="https://storage.googleapis.com/cms-storage-bucket/0dbfcc7a59cd1cf16282.png"
+            img="https://flutter.dev/assets/icon_flutter.4262c71228b7aa391e995fe5f1d57795.png"
         />
     );
 };

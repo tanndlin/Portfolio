@@ -3,8 +3,8 @@ import * as Tech from './Technologies';
 
 function ProjectsPage() {
     return (
-        <article id="projects" className="container flex-1 w-full m-auto py-12">
-            <h1 className="section-title mb-16 transition-header">
+        <article id="projects" className="container flex-1 w-full py-12 m-auto">
+            <h1 className="mb-16 section-title transition-header">
                 Personal Projects
             </h1>
             <div className="flex flex-col gap-24">
@@ -20,7 +20,7 @@ function ProjectsPage() {
                     <p>
                         <b>Key features:</b>
                     </p>
-                    <ul className="list-disc mt-1">
+                    <ul className="mt-1 list-disc">
                         <li className="ml-4">
                             Compiles to AMD64 instruction set
                         </li>
@@ -46,45 +46,30 @@ function ProjectsPage() {
                 </Project>
 
                 <Project
-                    title="CPPRayTracer"
-                    overview="A ray tracer with no dependencies built in C++"
-                    githubLink="https://github.com/tanndlin/CPPRayTracer"
+                    title="Ray Tracer"
+                    overview="A ray tracer built in Rust"
+                    githubLink="https://github.com/tanndlin/RustRayTracer"
                     technologies={[
                         <Tech.CPPTech key="cpp" />,
                         <Tech.RustTech key="rust" />,
                     ]}
                     img={
-                        'https://github.com/tanndlin/CPPRayTracer/blob/master/image.jpg?raw=true'
+                        'https://github.com/tanndlin/RustRayTracer/blob/master/render.png?raw=true'
                     }
                 >
                     <p>
                         <b>Key features:</b>
                     </p>
-                    <ul className="list-disc mt-1">
+                    <ul className="mt-1 list-disc">
                         <li className="ml-4">
                             Uses Bounding Volume Hierarchy (BVH) to speed up to
                             cull faces to speed up rendering.
                         </li>
                         <li className="ml-4">
-                            A custom ThreadPool implementaion to allow for
-                            parallel rendering of tiles to speed up rendering.
+                            Supports object instancing to minimize memory usage, allowing whole scenes to fit within L1 cache for maximum performance.
                         </li>
                         <li className="ml-4">
-                            Ability to load and render .obj files with support
-                            for image textures in the .mtl format
-                        </li>
-                        <li className="ml-4">
-                            I have also rewritten the ray tracer in Rust to help
-                            learn the langauge. You can see it{' '}
-                            <b>
-                                <a
-                                    href="https://github.com/tanndlin/RustRayTracer"
-                                    className="glow accent-text"
-                                >
-                                    here
-                                </a>
-                            </b>
-                            .
+                            Supports .obj, .mtl, and .gltf file formats for easy importing of 3D models and materials.
                         </li>
                     </ul>
                 </Project>
@@ -120,7 +105,7 @@ function ProjectsPage() {
                         <Tech.TypeScriptTech key="ts" />,
                     ]}
                 >
-                    <ul className="list-disc mt-1">
+                    <ul className="mt-1 list-disc">
                         <li className="ml-4">
                             Takes advantage of hyperlinks to quickly reference
                             other notes, and allows for easy navigation between
