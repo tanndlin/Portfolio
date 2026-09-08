@@ -2,12 +2,12 @@ import Experience from './Experience';
 
 const ExperiencePage = () => {
     return (
-        <article id="experience" className="container p-3 m-auto py-12">
-            <h1 className="section-title mb-16 transition-header">
+        <article id="experience" className="container p-3 py-12 m-auto">
+            <h1 className="mb-16 section-title transition-header">
                 Experience
             </h1>
             <Experience
-                title="Software Engineer II"
+                title="Cloud Security Engineer"
                 company={{
                     name: 'CFX',
                     link: 'https://www.cfxway.com/',
@@ -15,23 +15,23 @@ const ExperiencePage = () => {
                 date={'Dec 2025 - Present'}
             >
                 <li>
-                    Security Engineer responsible for addressing security
-                    vulnerabilities identified by static code analysis tools and
-                    penetration testing.
+                    Utilized Checkmarx SAST/SCA tools to triage and fix PCI
+                    related security vulnerabilities across 50 Azure
+                    microservices
                 </li>
                 <li>
-                    Collaborate with development teams to implement secure
-                    coding practices and ensure compliance with industry
-                    standards.
+                    Migrated 2 million+ user accounts from Oracle to Microsoft
+                    Dynamics, supporting 1M+ daily transactions
                 </li>
                 <li>
-                    Conduct regular security assessments and penetration testing
-                    to identify and mitigate potential vulnerabilities in
-                    software applications to stay compliant with PCI DSS
+                    Led an Azure Policy compliance initiative across 50
+                    microservices, covering the .NET 10 upgrade,
+                    mTLS/IP-allowlist hardening via Imperva, and migration to
+                    AAD-based managed-identity authentication
                 </li>
                 <li>
-                    Apply security patches to running production servers to
-                    minimize downtime and mitigate vulnerabilities
+                    Reduced technical debt by deprecating legacy codebases and
+                    eliminating anti-patterns across production services
                 </li>
             </Experience>
             <Experience
