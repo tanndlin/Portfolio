@@ -66,10 +66,135 @@ function ProjectsPage() {
                             cull faces to speed up rendering.
                         </li>
                         <li className="ml-4">
-                            Supports object instancing to minimize memory usage, allowing whole scenes to fit within L1 cache for maximum performance.
+                            Supports object instancing to minimize memory usage,
+                            allowing whole scenes to fit within L1 cache for
+                            maximum performance.
                         </li>
                         <li className="ml-4">
-                            Supports .obj, .mtl, and .gltf file formats for easy importing of 3D models and materials.
+                            Supports .obj, .mtl, and .gltf file formats for easy
+                            importing of 3D models and materials, including a
+                            hand-written glTF deserializer built on serde.
+                        </li>
+                        <li className="ml-4">
+                            Organized as a multi-crate Cargo workspace
+                            (geometry, materials, parser, and the renderer) with
+                            Rayon data-parallel rendering across all cores.
+                        </li>
+                        <li className="ml-4">
+                            Ships as a clap CLI with live indicatif progress
+                            bars.
+                        </li>
+                    </ul>
+                </Project>
+
+                <Project
+                    title="tmail - Mail Server Stack"
+                    overview="A from-scratch SMTP + IMAP mail server written in Rust"
+                    githubLink="https://github.com/tanndlin/rs-smtp"
+                    technologies={[
+                        <Tech.RustTech key="rust" />,
+                        <Tech.SQLTech key="sql" />,
+                        <Tech.DockerTech key="docker" />,
+                    ]}
+                    img={
+                        'https://opengraph.githubassets.com/1/tanndlin/rs-smtp'
+                    }
+                >
+                    <p>
+                        Entire e-mail stack hosted on my at-home Linux Server
+                        that I use every day through Thunderbird
+                    </p>
+                    <hr className="mb-2" />
+                    <p>
+                        <b>Key features:</b>
+                    </p>
+                    <ul className="mt-1 list-disc">
+                        <li className="ml-4">
+                            Hand-written SMTP and IMAP protocol parsers —
+                            command/response types and a per-connection state
+                            machine, with no protocol crates.
+                        </li>
+                        <li className="ml-4">
+                            Four-service architecture: SMTP ingest, IMAP server,
+                            and a RabbitMQ consumer that persists mail to
+                            PostgreSQL, all wired together with Docker Compose.
+                        </li>
+                        <li className="ml-4">
+                            Compile-time-checked SQL via sqlx with versioned
+                            migrations; async services built on Tokio.
+                        </li>
+                        <li className="ml-4">
+                            Integration test suite driving real IMAP flows
+                            (LOGIN, SELECT, FETCH, APPEND) against the running
+                            server.
+                        </li>
+                    </ul>
+                </Project>
+
+                <Project
+                    title="rs-http2"
+                    overview="An HTTP/2 server implementing the binary protocol from the ground up"
+                    githubLink="https://github.com/tanndlin/rs-http2"
+                    technologies={[<Tech.RustTech key="rust" />]}
+                    img={
+                        'https://opengraph.githubassets.com/1/tanndlin/rs-http2'
+                    }
+                >
+                    <p>
+                        <b>Key features:</b>
+                    </p>
+                    <ul className="mt-1 list-disc">
+                        <li className="ml-4">
+                            Full HTTP/2 framing layer — DATA, HEADERS, SETTINGS,
+                            PING, GOAWAY, RST_STREAM, WINDOW_UPDATE, PRIORITY,
+                            PUSH_PROMISE, and CONTINUATION.
+                        </li>
+                        <li className="ml-4">
+                            HPACK header compression and the complete per-stream
+                            state machine (idle / open / half-closed / reserved
+                            / closed), each state modeled as its own type.
+                        </li>
+                        <li className="ml-4">
+                            TLS via OpenSSL with ALPN negotiation and a per-core
+                            thread pool, serving static files at roughly 150k
+                            requests/sec on a Ryzen 9 7900X.
+                        </li>
+                    </ul>
+                </Project>
+
+                <Project
+                    title="Open Deck"
+                    overview="An Elgato Stream Deck MK2 driver and web UI, shipped as one Rust binary"
+                    githubLink="https://github.com/tanndlin/open-deck"
+                    technologies={[
+                        <Tech.RustTech key="rust" />,
+                        <Tech.ReactTech key="react" />,
+                    ]}
+                    img={
+                        'https://opengraph.githubassets.com/1/tanndlin/open-deck'
+                    }
+                >
+                    <ul className="mt-1 list-disc">
+                        <li className="ml-4">
+                            Reverse engineered first-party Elgato StreamDeck
+                            software to create a driver of my own.
+                        </li>
+                        <li className="ml-4">
+                            Polls the Stream Deck over raw HID and renders
+                            text/images onto its keys, with nested folder pages
+                            for organizing actions.
+                        </li>
+                        <li className="ml-4">
+                            An axum web server with a WebSocket channel keeps
+                            the React UI in lockstep with the physical device;
+                            the compiled frontend is embedded into the binary,
+                            so distribution is a single file.
+                        </li>
+                        <li className="ml-4">
+                            Drives the local Discord desktop client over its RPC
+                            IPC socket to join voice channels; cross-compiled
+                            for Linux and Windows in CI and published to a
+                            rolling release.
                         </li>
                     </ul>
                 </Project>
