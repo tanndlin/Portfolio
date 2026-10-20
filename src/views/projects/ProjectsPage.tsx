@@ -10,11 +10,11 @@ function ProjectsPage() {
             <div className="flex flex-col gap-24">
                 <Project
                     title="TanScript"
-                    overview="A compiled programming language built from scratch using TypeScript"
+                    overview="A statically typed, C-like language with a from-scratch compiler written in Rust that emits x86-64 assembly for Windows"
                     githubLink="https://github.com/tanndlin/tanscript"
-                    technologies={[<Tech.TypeScriptTech key="ts" />]}
+                    technologies={[<Tech.RustTech key="rust" />]}
                     img={
-                        'https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg'
+                        'https://opengraph.githubassets.com/1/tanndlin/TanScript'
                     }
                 >
                     <p>
@@ -22,25 +22,48 @@ function ProjectsPage() {
                     </p>
                     <ul className="mt-1 list-disc">
                         <li className="ml-4">
-                            Compiles to AMD64 instruction set
+                            Full compiler pipeline built by hand: lexer,
+                            recursive-descent parser, preprocessor, type checker
+                            with local type inference, and a code generator with
+                            register allocation that emits NASM x86-64 assembly.
                         </li>
                         <li className="ml-4">
-                            Functions and lambdas that can be passed around as
-                            first class citizens.
+                            Static type system with sized signed and unsigned
+                            integers, chars, booleans, pointers, structs, and
+                            generics, plus explicit casts and implicit
+                            upcasting.
                         </li>
                         <li className="ml-4">
-                            Signals implementation that allows for easy event
-                            driven mathematics using a dependency graph models
-                            to update variables only as needed.
+                            Structs with C-compatible memory layout, copy
+                            semantics, and support for passing structs and
+                            pointers to structs between functions.
                         </li>
                         <li className="ml-4">
-                            Full support for all math operators, and nested
-                            expressions with parenthesis.
+                            Implements the Win64 calling convention (shadow
+                            space, register and stack arguments, stack
+                            alignment) so TanScript code can call directly into
+                            the C runtime, such as printf and malloc.
                         </li>
-                        <li className="ml-4">Support for strings</li>
                         <li className="ml-4">
-                            Support for objects which can have methods and
-                            properties
+                            Developed with Test Driven Development: 420+ unit
+                            tests and a golden test suite that compiles and runs
+                            real programs, including 15+ Project Euler
+                            solutions, a linked list, a quine, and an ASCII
+                            Mandelbrot renderer using fixed-point math.
+                        </li>
+                        <li className="ml-4">
+                            Hardened with cargo-fuzz and a nightly Jenkins CI
+                            pipeline that reports status back to GitHub.
+                        </li>
+                        <li className="ml-4">
+                            Developer tooling including a Language Server
+                            Protocol (LSP) implementation and a VS Code
+                            extension with syntax highlighting.
+                        </li>
+                        <li className="ml-4">
+                            Now working toward self-hosting by rewriting the
+                            compiler in TanScript itself, starting with a
+                            complete lexer.
                         </li>
                     </ul>
                 </Project>
