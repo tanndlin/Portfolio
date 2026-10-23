@@ -243,34 +243,6 @@ function ProjectsPage() {
                 </Project>
 
                 <Project
-                    title="Note Taker"
-                    overview="A note taking app that utilizes markdown to render styled notes"
-                    githubLink="https://github.com/tanndlin/NoteTaker"
-                    link="https://notetaker.tanndlin.com"
-                    img={'/note-taker-ss.webp'}
-                    technologies={[
-                        <Tech.ReactTech key="react" />,
-                        <Tech.TypeScriptTech key="ts" />,
-                    ]}
-                >
-                    <ul className="mt-1 list-disc">
-                        <li className="ml-4">
-                            Takes advantage of hyperlinks to quickly reference
-                            other notes, and allows for easy navigation between
-                            related notes
-                        </li>
-                        <li className="ml-4">
-                            Graph feature to visualize the relationships between
-                            notes.
-                        </li>
-                        <li className="ml-4">
-                            Stores and displays notes in file system tree
-                            structure for easy organization
-                        </li>
-                    </ul>
-                </Project>
-
-                <Project
                     title="DynamiCalc"
                     githubLink="https://github.com/tanndlin/DynamiCalc"
                     link="https://dynamicalc.tanndlin.com"
