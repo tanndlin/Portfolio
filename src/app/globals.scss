@@ -215,3 +215,132 @@ code {
         view-transition-name: box-body-#{$i};
     }
 }
+
+// ---------------------------------------------------------------------------
+// TanScript playground
+// ---------------------------------------------------------------------------
+
+.pg-window {
+    background: #0b1222;
+    border: 1px solid $border-color;
+    border-radius: 12px;
+    box-shadow: $shadow-l;
+    overflow: hidden;
+}
+
+.pg-pane {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    border-color: $border-color;
+}
+
+.pg-pane-title,
+.pg-status {
+    font-family: ui-monospace, 'Cascadia Code', Consolas, Menlo, monospace;
+    font-size: 0.75rem;
+    color: $text-muted;
+    background: rgba(51, 65, 85, 0.3);
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid $border-color;
+}
+
+.pg-status {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: none;
+    border-top: 1px solid $border-color;
+
+    & * {
+        color: inherit;
+    }
+
+    & .accent-text {
+        color: $accent;
+    }
+}
+
+.pg-code {
+    margin: 0;
+    padding: 1rem;
+    font-family: ui-monospace, 'Cascadia Code', Consolas, Menlo, monospace;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    tab-size: 4;
+    white-space: pre;
+    overflow: auto;
+}
+
+.pg-editor {
+    position: relative;
+    height: 28rem;
+
+    @media (max-width: 767px) {
+        height: 20rem;
+    }
+}
+
+.pg-highlight,
+.pg-input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.pg-highlight {
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.pg-input {
+    background: transparent;
+    color: transparent;
+    caret-color: $text-color;
+    border: none;
+    outline: none;
+    resize: none;
+
+    &::selection {
+        background: rgba(45, 212, 191, 0.25);
+    }
+
+    &:focus-visible {
+        box-shadow: inset 0 0 0 2px rgba(45, 212, 191, 0.4);
+    }
+}
+
+.pg-output {
+    height: 28rem;
+
+    @media (max-width: 767px) {
+        height: 20rem;
+    }
+}
+
+.pg-error,
+.pg-error * {
+    color: #fca5a5;
+}
+
+.pg-select {
+    background: $secondary;
+    border: 1px solid $border-color;
+    border-radius: 6px;
+    padding: 0.25rem 0.5rem;
+    color: $text-color;
+}
+
+// Token colors (shared by source and assembly)
+.pg-kw { color: #f472b6; }
+.pg-type { color: #7dd3fc; }
+.pg-struct { color: #a5b4fc; }
+.pg-fn { color: #fde68a; }
+.pg-str { color: #fbbf24; }
+.pg-num { color: #fb923c; }
+.pg-punct { color: #94a3b8; }
+.pg-label { color: $accent; font-weight: 600; }
+.pg-mnemonic { color: #f1f5f9; }
+.pg-reg { color: #7dd3fc; }
+.pg-directive { color: #c4b5fd; }
+.pg-src-echo { color: #64748b; font-style: italic; }

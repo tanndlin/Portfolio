@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "deploy": "next build && firebase deploy"
+    "deploy": "npm run build:wasm && next build && firebase deploy",
+    "build:wasm": "cargo build --manifest-path ../TanScript/Cargo.toml -p tanscript-playground --target wasm32-unknown-unknown --profile wasm && node -e \"require('fs').copyFileSync('../TanScript/target/wasm32-unknown-unknown/wasm/tanscript_playground.wasm', 'public/tanscript.wasm')\""
   },
   "dependencies": {
     "next": "^15.3.1",
