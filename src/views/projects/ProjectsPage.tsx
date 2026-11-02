@@ -85,13 +85,14 @@ function ProjectsPage() {
                     </p>
                     <ul className="mt-1 list-disc">
                         <li className="ml-4">
-                            Uses Bounding Volume Hierarchy (BVH) to speed up to
-                            cull faces to speed up rendering.
+                            Bounding Volume Hierarchy (BVH) acceleration
+                            structure that skips faces a ray can't hit, greatly
+                            reducing intersection tests.
                         </li>
                         <li className="ml-4">
-                            Supports object instancing to minimize memory usage,
-                            allowing whole scenes to fit within L1 cache for
-                            maximum performance.
+                            Object instancing reuses mesh data across copies,
+                            keeping memory usage low and improving cache
+                            locality.
                         </li>
                         <li className="ml-4">
                             Supports .obj, .mtl, and .gltf file formats for easy
@@ -104,8 +105,8 @@ function ProjectsPage() {
                             Rayon data-parallel rendering across all cores.
                         </li>
                         <li className="ml-4">
-                            Ships as a clap CLI with live indicatif progress
-                            bars.
+                            Ships as a CLI (clap) with live progress bars
+                            (indicatif).
                         </li>
                     </ul>
                 </Project>
@@ -124,8 +125,8 @@ function ProjectsPage() {
                     }
                 >
                     <p>
-                        Entire e-mail stack hosted on my at-home Linux Server
-                        that I use every day through Thunderbird
+                        My entire email stack, self-hosted on my home Linux
+                        server and used daily through Thunderbird.
                     </p>
                     <hr className="mb-2" />
                     <p>
@@ -169,8 +170,9 @@ function ProjectsPage() {
                     }
                 >
                     <p>
-                        Collects logs from the other services running on my
-                        home server, including my mail and media servers
+                        Collects logs from the services running on my home Linux
+                        server, including MovieHost, my self-hosted media
+                        server.
                     </p>
                     <hr className="mb-2" />
                     <p>
@@ -223,12 +225,12 @@ function ProjectsPage() {
                     <ul className="mt-1 list-disc">
                         <li className="ml-4">
                             Hand-written bencode encoder/decoder and
-                            implementation of the peer wire protocol, with
-                            SHA-1 verification of every downloaded piece.
+                            implementation of the peer wire protocol, with SHA-1
+                            verification of every downloaded piece.
                         </li>
                         <li className="ml-4">
-                            Finds peers through HTTP trackers and the
-                            Mainline DHT (KRPC over UDP).
+                            Finds peers through HTTP trackers and the Mainline
+                            DHT (KRPC over UDP).
                         </li>
                         <li className="ml-4">
                             Downloads from many peers at once, one thread per
@@ -241,8 +243,7 @@ function ProjectsPage() {
                         </li>
                         <li className="ml-4">
                             Docker Compose test setup with a local tracker and
-                            five qBittorrent peers to test against real
-                            clients.
+                            five qBittorrent peers to test against real clients.
                         </li>
                     </ul>
                 </Project>
@@ -292,8 +293,8 @@ function ProjectsPage() {
                 >
                     <ul className="mt-1 list-disc">
                         <li className="ml-4">
-                            Reverse engineered first-party Elgato StreamDeck
-                            software to create a driver of my own.
+                            Reverse-engineered Elgato's first-party Stream Deck
+                            software to write an independent driver.
                         </li>
                         <li className="ml-4">
                             Polls the Stream Deck over raw HID and renders
@@ -328,10 +329,10 @@ function ProjectsPage() {
                     ]}
                 >
                     <p>
-                        A budget tracker app that allows users to keep track of
-                        recurring bills, grocery budgets, and one time expenses.
-                        I was the lead front end eningeer for the website and
-                        helped oversee the development of the expressJS API.
+                        A budgeting app for tracking recurring bills, grocery
+                        budgets, and one-time expenses. I was the lead front-end
+                        engineer for the website and helped oversee development
+                        of the Express.js API.
                     </p>
                 </Project>
 
@@ -346,10 +347,9 @@ function ProjectsPage() {
                     img={'/dynamiCalc-ss.webp'}
                 >
                     <p>
-                        Most calculators have static variables that do not
-                        change after being set. DynamiCalc allows users to
-                        create dynamic variables that change as the user inputs
-                        new values.
+                        Most calculators store variables as fixed values.
+                        DynamiCalc lets users define variables as formulas that
+                        update automatically whenever their inputs change.
                     </p>
                 </Project>
 
@@ -365,10 +365,9 @@ function ProjectsPage() {
                     ]}
                 >
                     <p>
-                        Lead Developer of Lion, a discord bot developed in
-                        TypeScript with over 30 contributors. Helps manage the
-                        UCF CS Discord, making the life of the average user and
-                        moderator easier, serving <b>14,000+</b> users.
+                        Lead developer of Lion, a TypeScript Discord bot with
+                        30+ contributors that helps users and moderators manage
+                        the UCF CS Discord server, serving <b>14,000+</b> users.
                     </p>
                 </Project>
             </div>

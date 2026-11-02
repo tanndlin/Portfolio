@@ -15,9 +15,8 @@ const ExperiencePage = () => {
                 date={'Dec 2025 - Present'}
             >
                 <li>
-                    Utilized Checkmarx SAST/SCA tools to triage and fix PCI
-                    related security vulnerabilities across 50 Azure
-                    microservices
+                    Triaged and fixed PCI-related security vulnerabilities
+                    across 50 Azure microservices using Checkmarx SAST/SCA
                 </li>
                 <li>
                     Migrated 2 million+ user accounts from Oracle to Microsoft
@@ -43,33 +42,31 @@ const ExperiencePage = () => {
                 date={'June 2024 - Dec 2025'}
             >
                 <li>
-                    Lead software engineer on a team of 7 developers.
+                    Lead software engineer on a team of 7 developers
                     <ul className="mt-2 mb-4 ml-8 list-disc">
+                        <li>Served as Scrum Master, running daily standups</li>
                         <li>
-                            Scrum master for the team, leading daily standup
+                            Designed and executed a year-long test plan,
+                            building a test suite that helped the team ship
+                            reliable software on time
                         </li>
                         <li>
-                            Created and executed a year long test plan to create
-                            a test suite to assist our dev team in delivering
-                            robust software on-time
-                        </li>
-                        <li>
-                            Functional manager for 4 interns whom I mentored and
-                            gave tasks to
+                            Managed and mentored 4 interns, scoping and
+                            assigning their work
                         </li>
                     </ul>
                 </li>
                 <li>
-                    Converted many WPF applications to React web applications to
-                    allow easier containerization of our deployment stack.
+                    Migrated WPF desktop applications to React web apps, making
+                    the deployment stack easier to containerize
                 </li>
                 <li>
-                    Deployed VMWare ESXi servers to host our software Suite to
-                    various clients onsite.
+                    Deployed VMware ESXi servers to host our software suite
+                    on-site for clients
                 </li>
                 <li>
-                    Created automated deployment scripts and CI/CD pipelines for
-                    our software suite.
+                    Built automated deployment scripts and CI/CD pipelines for
+                    our software suite
                 </li>
             </Experience>
             <Experience
@@ -81,15 +78,14 @@ const ExperiencePage = () => {
                 date={'Oct 2022 - June 2024'}
             >
                 <li className="pr-4">
-                    C# Developer using the .NET framework to create applications
-                    for the communication and translation of data across various
-                    packet standards.
+                    Built C#/.NET applications that translate and relay data
+                    between multiple packet standards
                 </li>
                 <li>
-                    Created Wireshark Dissectors for many said protocols for
-                    debugging our translation applications
+                    Wrote Wireshark dissectors for these protocols to debug our
+                    translation applications
                 </li>
-                <li>Obtained security clearance in December of 2022</li>
+                <li>Obtained a security clearance in December 2022</li>
             </Experience>
         </article>
     );
