@@ -155,6 +155,99 @@ function ProjectsPage() {
                 </Project>
 
                 <Project
+                    title="tanlogs - Log Ingestion Platform"
+                    overview="A self-hosted log ingestion, storage, and query platform written in Rust"
+                    githubLink="https://github.com/tanndlin/log-ingestor"
+                    technologies={[
+                        <Tech.RustTech key="rust" />,
+                        <Tech.SQLTech key="sql" />,
+                        <Tech.ReactTech key="react" />,
+                        <Tech.DockerTech key="docker" />,
+                    ]}
+                    img={
+                        'https://opengraph.githubassets.com/1/tanndlin/log-ingestor'
+                    }
+                >
+                    <p>
+                        Collects logs from the other services running on my
+                        home server, including my mail and media servers
+                    </p>
+                    <hr className="mb-2" />
+                    <p>
+                        <b>Key features:</b>
+                    </p>
+                    <ul className="mt-1 list-disc">
+                        <li className="ml-4">
+                            HTTP (axum) and raw TCP ingest endpoints feeding a
+                            shared writer, with TCP frames encoded in the
+                            compact postcard binary format.
+                        </li>
+                        <li className="ml-4">
+                            Hand-built segmented write-ahead log with atomic,
+                            fsync'd checkpoints, so logs survive an ingestor
+                            crash or database outage and are replayed into
+                            PostgreSQL from the last checkpoint on restart.
+                        </li>
+                        <li className="ml-4">
+                            Batched inserts into PostgreSQL using UNNEST, with
+                            retry on transient database failures.
+                        </li>
+                        <li className="ml-4">
+                            Client SDK implemented as a tracing-subscriber
+                            Layer, so any Rust service can ship its logs with a
+                            single line of setup.
+                        </li>
+                        <li className="ml-4">
+                            Separate query service and a React log viewer with
+                            pagination, deployed with Docker Compose and built
+                            by Jenkins CI.
+                        </li>
+                    </ul>
+                </Project>
+
+                <Project
+                    title="BitTorrent Client"
+                    overview="A BitTorrent client written from scratch in Rust"
+                    githubLink="https://github.com/tanndlin/BitTorrent"
+                    technologies={[
+                        <Tech.RustTech key="rust" />,
+                        <Tech.DockerTech key="docker" />,
+                    ]}
+                    img={
+                        'https://opengraph.githubassets.com/1/tanndlin/BitTorrent'
+                    }
+                >
+                    <p>
+                        <b>Key features:</b>
+                    </p>
+                    <ul className="mt-1 list-disc">
+                        <li className="ml-4">
+                            Hand-written bencode encoder/decoder and
+                            implementation of the peer wire protocol, with
+                            SHA-1 verification of every downloaded piece.
+                        </li>
+                        <li className="ml-4">
+                            Finds peers through HTTP trackers and the
+                            Mainline DHT (KRPC over UDP).
+                        </li>
+                        <li className="ml-4">
+                            Downloads from many peers at once, one thread per
+                            peer.
+                        </li>
+                        <li className="ml-4">
+                            Journals completed pieces to disk so a stopped
+                            download picks up where it left off instead of
+                            starting over.
+                        </li>
+                        <li className="ml-4">
+                            Docker Compose test setup with a local tracker and
+                            five qBittorrent peers to test against real
+                            clients.
+                        </li>
+                    </ul>
+                </Project>
+
+                <Project
                     title="rs-http2"
                     overview="An HTTP/2 server implementing the binary protocol from the ground up"
                     githubLink="https://github.com/tanndlin/rs-http2"
