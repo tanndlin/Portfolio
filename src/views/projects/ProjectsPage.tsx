@@ -87,6 +87,10 @@ function ProjectsPage() {
                         'https://github.com/tanndlin/RustRayTracer/blob/master/render.png?raw=true'
                     }
                 >
+                    <p className="mb-3">
+                        Originally written in C++, then rewritten and continued
+                        in Rust.
+                    </p>
                     <p>
                         <b>Key features:</b>
                     </p>
