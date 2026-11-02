@@ -8,6 +8,7 @@ const Socials = () => {
         >
             <li>
                 <SocialLink
+                    className="invert"
                     link={'https://github.com/tanndlin'}
                     logo={'/github.webp'}
                     alt={'Github Logo'}
