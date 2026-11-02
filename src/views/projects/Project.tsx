@@ -9,17 +9,19 @@ interface ProjectProps {
     link?: string;
     githubLink: string;
     img: string;
+    caption?: ReactNode;
     children: ReactNode;
 }
 
 function Project(props: ProjectProps) {
-    const { title, technologies, link, githubLink, img, children } = props;
+    const { title, technologies, link, githubLink, img, caption, children } =
+        props;
 
     const realLink = link ?? githubLink;
 
     return (
-        <section className="relative project">
-            <div className="w-3/5 project-card z-[1] flex flex-col relative">
+        <section className="project flex items-center gap-8 max-md:flex-col">
+            <div className="w-3/5 max-md:w-full project-card flex flex-col">
                 <header className="px-6 py-4 project-header">
                     <h1 className="text-xl font-semibold">
                         <a
@@ -46,18 +48,22 @@ function Project(props: ProjectProps) {
                     />
                 </div>
             </div>
-            <a
-                className="absolute top-0 h-full projectDisplay"
-                href={link ?? githubLink}
-            >
-                <img
-                    className="w-full h-full object-cover"
-                    src={img}
-                    alt="Project"
-                    loading="lazy"
-                    decoding="async"
-                />
-            </a>
+            <figure className="w-2/5 max-md:w-full shrink-0">
+                <a className="block projectDisplay" href={realLink}>
+                    <img
+                        className="block w-full h-auto"
+                        src={img}
+                        alt={`${title} preview`}
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </a>
+                {caption && (
+                    <figcaption className="mt-3 font-mono text-xs leading-relaxed text-muted">
+                        {caption}
+                    </figcaption>
+                )}
+            </figure>
         </section>
     );
 }

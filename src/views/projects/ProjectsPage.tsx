@@ -13,8 +13,15 @@ function ProjectsPage() {
                     overview="A statically typed, C-like language with a from-scratch compiler written in Rust that emits x86-64 assembly for Windows"
                     githubLink="https://github.com/tanndlin/tanscript"
                     technologies={[<Tech.RustTech key="rust" />]}
-                    img={
-                        'https://opengraph.githubassets.com/1/tanndlin/TanScript'
+                    img={'/tanscript-mandelbrot.webp'}
+                    caption={
+                        <>
+                            Real TanScript output: a 38-line program from the
+                            golden test suite that renders the Mandelbrot set
+                            using only integer math (fixed-point, 12 fractional
+                            bits), compiled to x86-64 and checked against this
+                            exact output on every test run.
+                        </>
                     }
                 >
                     <p>
@@ -165,9 +172,7 @@ function ProjectsPage() {
                         <Tech.ReactTech key="react" />,
                         <Tech.DockerTech key="docker" />,
                     ]}
-                    img={
-                        'https://opengraph.githubassets.com/1/tanndlin/log-ingestor'
-                    }
+                    img={'/tanlogs-architecture.webp'}
                 >
                     <p>
                         Collects logs from the services running on my home Linux
