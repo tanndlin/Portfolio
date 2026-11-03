@@ -357,8 +357,10 @@ function ProjectsPage() {
                 >
                     <p>
                         Most calculators store variables as fixed values.
-                        DynamiCalc lets users define variables as formulas that
-                        update automatically whenever their inputs change.
+                        DynamiCalc is a calculation notebook where variables are
+                        formulas, so changing one line updates every line that
+                        depends on it. Wires in the margin show those
+                        dependencies, and a graphing page plots functions of x.
                     </p>
                 </Project>
 
