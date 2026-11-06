@@ -41,6 +41,12 @@ function ProjectsPage() {
                             upcasting.
                         </li>
                         <li className="ml-4">
+                            Enums and match statements over enums, integers, and
+                            chars, with a wildcard arm and a compile-time
+                            exhaustiveness check that rejects an enum match
+                            missing a variant.
+                        </li>
+                        <li className="ml-4">
                             Structs with C-compatible memory layout, copy
                             semantics, and support for passing structs and
                             pointers to structs between functions.
