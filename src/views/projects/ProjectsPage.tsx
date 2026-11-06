@@ -76,6 +76,57 @@ function ProjectsPage() {
                 </Project>
 
                 <Project
+                    title="CodeBattle"
+                    overview="Real-time competitive coding: players join a room and race to solve the same prompt"
+                    link="https://codebattle.tanndlin.com"
+                    githubLink="https://github.com/tanndlin/CodeBattle"
+                    technologies={[
+                        <Tech.RustTech key="rust" />,
+                        <Tech.ReactTech key="react" />,
+                        <Tech.TypeScriptTech key="ts" />,
+                        <Tech.SQLTech key="sql" />,
+                        <Tech.DockerTech key="docker" />,
+                    ]}
+                    img={
+                        'https://opengraph.githubassets.com/1/tanndlin/CodeBattle'
+                    }
+                >
+                    <p>
+                        <b>Key features:</b>
+                    </p>
+                    <ul className="mt-1 list-disc">
+                        <li className="ml-4">
+                            Rust game server (axum, tokio) that runs rooms,
+                            rounds, and players over a WebSocket protocol, with
+                            TypeScript bindings generated from the Rust types
+                            by ts-rs.
+                        </li>
+                        <li className="ml-4">
+                            Supports JavaScript, TypeScript, Python, Go, Rust,
+                            C++, and Java. Every prompt has starter code and a
+                            harness in every language.
+                        </li>
+                        <li className="ml-4">
+                            Submissions are judged against hidden test cases by
+                            sandboxed workers that pull jobs from a Redis queue.
+                            The workers run under gVisor on an isolated network,
+                            and seccomp filters limit compiled code to a short
+                            allowlist of syscalls.
+                        </li>
+                        <li className="ml-4">
+                            Samples for JS and TS run in the browser inside a
+                            Web Worker, so feedback is instant while you type in
+                            the Monaco editor.
+                        </li>
+                        <li className="ml-4">
+                            Public and private rooms, GitHub and Google sign-in,
+                            and a leaderboard backed by PostgreSQL, deployed as
+                            one Docker Compose stack with Jenkins CI.
+                        </li>
+                    </ul>
+                </Project>
+
+                <Project
                     title="Ray Tracer"
                     overview="A ray tracer built in Rust"
                     githubLink="https://github.com/tanndlin/RustRayTracer"
