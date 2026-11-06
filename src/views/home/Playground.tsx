@@ -90,6 +90,7 @@ const TS_KEYWORDS = new Set([
     'def',
     'struct',
     'enum',
+    'match',
     'if',
     'else',
     'while',
