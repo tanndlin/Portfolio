@@ -10,13 +10,25 @@ interface ProjectProps {
     link?: string;
     githubLink: string;
     img: string;
+    /** Intrinsic image size, so the box is reserved before the lazy image loads. */
+    imgWidth: number;
+    imgHeight: number;
     caption?: ReactNode;
     children: ReactNode;
 }
 
 function Project(props: ProjectProps) {
-    const { title, technologies, link, githubLink, img, caption, children } =
-        props;
+    const {
+        title,
+        technologies,
+        link,
+        githubLink,
+        img,
+        imgWidth,
+        imgHeight,
+        caption,
+        children,
+    } = props;
 
     const realLink = link ?? githubLink;
 
@@ -57,6 +69,8 @@ function Project(props: ProjectProps) {
                     <img
                         className="block w-full h-auto"
                         src={img}
+                        width={imgWidth}
+                        height={imgHeight}
                         alt={`${title} preview`}
                         loading="lazy"
                         decoding="async"

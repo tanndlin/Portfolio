@@ -19,6 +19,8 @@ function ProjectsPage() {
                     githubLink="https://github.com/tanndlin/tanscript"
                     technologies={[<Tech.RustTech key="rust" />]}
                     img={'/tanscript-mandelbrot.webp'}
+                    imgWidth={1800}
+                    imgHeight={1400}
                     caption={
                         <>
                             Real TanScript output: a 38-line program from the
@@ -102,6 +104,8 @@ function ProjectsPage() {
                     img={
                         'https://opengraph.githubassets.com/1/tanndlin/CodeBattle'
                     }
+                    imgWidth={1200}
+                    imgHeight={600}
                 >
                     <p>
                         <b>Key features:</b>
