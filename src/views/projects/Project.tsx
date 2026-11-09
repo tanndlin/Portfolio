@@ -3,6 +3,7 @@ import ExternalIcon from './ExternalIcon';
 import Icon from './GitHubIcon';
 
 interface ProjectProps {
+    id: string;
     title: string;
     overview?: string;
     technologies: ReactNode[];
@@ -20,7 +21,10 @@ function Project(props: ProjectProps) {
     const realLink = link ?? githubLink;
 
     return (
-        <section className="project flex items-center gap-8 max-md:flex-col">
+        <section
+            id={props.id}
+            className="project flex items-center gap-8 max-md:flex-col scroll-mt-24"
+        >
             <div className="w-3/5 max-md:w-full project-card flex flex-col">
                 <header className="px-6 py-4 project-header">
                     <h1 className="text-xl font-semibold">
@@ -68,7 +72,7 @@ function Project(props: ProjectProps) {
     );
 }
 
-function TechContainer({
+export function TechContainer({
     technologies,
     githubLink,
     link,

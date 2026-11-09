@@ -111,6 +111,36 @@ code {
     }
 }
 
+.compact-project {
+    background: $secondary;
+    border: 1px solid $border-color;
+    border-radius: 12px;
+    box-shadow: $shadow-m;
+    transition: border-color 0.2s;
+
+    &:hover {
+        border-color: rgba(45, 212, 191, 0.3);
+    }
+
+    & summary {
+        cursor: pointer;
+        list-style: none;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &::before {
+            content: '▸ ';
+            color: $accent;
+        }
+    }
+
+    & details[open] summary::before {
+        content: '▾ ';
+    }
+}
+
 .socialLink {
     transition: 0.2s ease;
     opacity: 0.55;
