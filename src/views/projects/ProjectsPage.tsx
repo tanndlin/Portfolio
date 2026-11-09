@@ -152,9 +152,7 @@ function ProjectsPage() {
                         <Tech.RustTech key="rust" />,
                         <Tech.CPPTech key="cpp" />,
                     ]}
-                    img={
-                        'https://github.com/tanndlin/RustRayTracer/blob/master/render.png?raw=true'
-                    }
+                    img={'/ray-tracer.webp'}
                 >
                     <ul className="mt-1 list-disc">
                         <li className="ml-4">
