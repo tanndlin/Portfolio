@@ -16,12 +16,14 @@ function HomePage() {
                             <h1 className="mb-3 font-bold tracking-tight transition-header text-7xl max-sm:text-5xl">
                                 Tanner Sandlin
                             </h1>
-                            <p className="mb-8 text-xl text-muted max-sm:text-lg">
-                                Fullstack Software Engineer
+                            <p className="max-w-xl mb-8 text-xl leading-relaxed text-muted max-sm:text-lg">
+                                I build systems from the protocol up: a compiler
+                                for my own language, a mail server, an HTTP/2
+                                server, and a BitTorrent client, all in Rust.
                             </p>
                             <div className="flex flex-wrap gap-2">
                                 <span className="role-tag">
-                                    Software Engineer
+                                    Cloud Security Engineer @ CFX
                                 </span>
                                 <span className="role-tag">
                                     CS @ UCF &apos;24
