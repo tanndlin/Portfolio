@@ -96,6 +96,21 @@ code {
     white-space: nowrap;
 }
 
+.stats-strip {
+    background: $border-color;
+    border: 1px solid $border-color;
+    border-radius: 12px;
+}
+
+.stat {
+    background: $secondary;
+    transition: background-color 0.2s;
+
+    &:hover {
+        background: rgba(51, 65, 85, 0.6);
+    }
+}
+
 .socialLink {
     transition: 0.2s ease;
     opacity: 0.55;

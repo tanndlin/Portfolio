@@ -1,5 +1,55 @@
 import Playground from './Playground';
 
+// The systems behind the tagline, each with the fact that makes it real.
+const STATS = [
+    {
+        value: 'x86-64',
+        label: 'TanScript compiler',
+        context: 'my own language; try it below',
+        href: '#playground',
+    },
+    {
+        value: 'SMTP + IMAP',
+        label: 'tmail mail server',
+        context: 'runs my email every day',
+        href: '/projects/#tmail',
+    },
+    {
+        value: 'HTTP/2',
+        label: 'rs-http2 server',
+        context: 'binary framing, HPACK, TLS',
+        href: '/projects/#rs-http2',
+    },
+    {
+        value: 'BitTorrent',
+        label: 'from-scratch client',
+        context: 'trackers + Mainline DHT',
+        href: '/projects/#bittorrent',
+    },
+];
+
+function StatsStrip() {
+    return (
+        <ul className="grid grid-cols-4 gap-px mt-16 overflow-hidden stats-strip max-md:grid-cols-2">
+            {STATS.map((stat) => (
+                <li key={stat.label}>
+                    <a className="block h-full px-5 py-4 stat" href={stat.href}>
+                        <span className="block text-2xl font-bold tracking-tight accent-text max-sm:text-xl">
+                            {stat.value}
+                        </span>
+                        <span className="block mt-1 text-sm font-medium">
+                            {stat.label}
+                        </span>
+                        <span className="block mt-1 font-mono text-xs text-muted">
+                            {stat.context}
+                        </span>
+                    </a>
+                </li>
+            ))}
+        </ul>
+    );
+}
+
 function HomePage() {
     return (
         <>
@@ -17,9 +67,8 @@ function HomePage() {
                                 Tanner Sandlin
                             </h1>
                             <p className="max-w-xl mb-8 text-xl leading-relaxed text-muted max-sm:text-lg">
-                                I build systems from the protocol up: a compiler
-                                for my own language, a mail server, an HTTP/2
-                                server, and a BitTorrent client, all in Rust.
+                                I build systems from the protocol up, mostly in
+                                Rust.
                             </p>
                             <div className="flex flex-wrap gap-2">
                                 <span className="role-tag">
@@ -42,6 +91,7 @@ function HomePage() {
                             decoding="async"
                         />
                     </div>
+                    <StatsStrip />
                 </div>
             </article>
             <Playground />
