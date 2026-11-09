@@ -5,6 +5,7 @@ import './globals.scss';
 import Container from '../components/Container';
 import Header from '../components/Header';
 import Socials from '../components/Socials';
+import { pageMetadata } from './seo';
 
 const inter = Inter({
     subsets: ['latin'],
@@ -12,9 +13,17 @@ const inter = Inter({
     display: 'swap',
 });
 
+const description =
+    'Software engineer who builds systems from the protocol up: a compiler for my own language, an SMTP/IMAP mail server, an HTTP/2 server, and a BitTorrent client, all in Rust.';
+
 export const metadata: Metadata = {
-    title: 'Tanner Sandlin',
-    description: 'Software Engineer portfolio',
+    metadataBase: new URL('https://tanndlin.com'),
+    title: {
+        default: 'Tanner Sandlin | Software Engineer',
+        template: '%s | Tanner Sandlin',
+    },
+    authors: [{ name: 'Tanner Sandlin', url: 'https://tanndlin.com' }],
+    ...pageMetadata('Tanner Sandlin | Software Engineer', description, '/'),
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
