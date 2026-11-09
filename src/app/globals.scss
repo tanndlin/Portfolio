@@ -379,6 +379,15 @@ code {
     }
 }
 
+.pg-stdout {
+    height: 14rem;
+    transition: opacity 0.15s;
+
+    @media (max-width: 767px) {
+        height: 12rem;
+    }
+}
+
 .pg-error,
 .pg-error * {
     color: #fca5a5;

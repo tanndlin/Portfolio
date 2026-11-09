@@ -23,6 +23,8 @@ interface CompilerExports {
     compile(ptr: number, len: number): number;
     output_ptr(): number;
     output_len(): number;
+    run(ptr: number, len: number): number;
+    exit_code(): number;
 }
 
 type CompileResult =
@@ -36,7 +38,7 @@ const ICE_MESSAGE =
 class Compiler {
     private exports: CompilerExports | null = null;
 
-    private constructor(private readonly module: WebAssembly.Module) {}
+    private constructor(readonly module: WebAssembly.Module) {}
 
     static async load(url: string): Promise<Compiler> {
         const res = await fetch(url);
@@ -78,6 +80,140 @@ class Compiler {
                 ms: performance.now() - start,
             };
         }
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Emulator (runs the generated assembly in a worker)
+// ---------------------------------------------------------------------------
+
+type RunResult =
+    | { kind: 'exited'; stdout: string; code: number; ms: number }
+    | { kind: 'error'; output: string }
+    | { kind: 'timeout' };
+
+const RUN_TIMEOUT_MS = 3000;
+
+// The emulator's step limit is far beyond what a page should block on, so
+// programs run in a worker that is terminated on timeout or when a newer run
+// supersedes it. Inlined as a blob so it shares the already-compiled module.
+const WORKER_SOURCE = `
+let module, x;
+const instantiate = () => { x = new WebAssembly.Instance(module, {}).exports; };
+onmessage = (e) => {
+    if (e.data.module) { module = e.data.module; instantiate(); return; }
+    const { id, asm } = e.data;
+    const start = performance.now();
+    try {
+        const bytes = new TextEncoder().encode(asm);
+        const ptr = x.alloc(bytes.length);
+        new Uint8Array(x.memory.buffer, ptr, bytes.length).set(bytes);
+        const ok = x.run(ptr, bytes.length) === 1;
+        x.dealloc(ptr, bytes.length);
+        const output = new TextDecoder().decode(
+            new Uint8Array(x.memory.buffer, x.output_ptr(), x.output_len()));
+        postMessage({ id, ok, output, code: x.exit_code(), ms: performance.now() - start });
+    } catch {
+        instantiate();
+        postMessage({ id, ok: false, output: 'internal emulator error: the emulator panicked on this program.' });
+    }
+};
+`;
+
+interface WorkerReply {
+    id: number;
+    ok: boolean;
+    output: string;
+    code?: number;
+    ms?: number;
+}
+
+class Runner {
+    private readonly url = URL.createObjectURL(
+        new Blob([WORKER_SOURCE], { type: 'text/javascript' }),
+    );
+    private worker: Worker | null = null;
+    private nextId = 0;
+    private pending: {
+        id: number;
+        timer: ReturnType<typeof setTimeout>;
+        resolve: (r: RunResult | null) => void;
+    } | null = null;
+
+    constructor(private readonly module: WebAssembly.Module) {}
+
+    /** Resolves `null` if a later call (or `dispose`) superseded this run. */
+    run(asm: string): Promise<RunResult | null> {
+        this.cancel();
+        const worker = this.spawn();
+        const id = this.nextId++;
+        return new Promise((resolve) => {
+            const timer = setTimeout(() => {
+                this.pending = null;
+                this.kill();
+                resolve({ kind: 'timeout' });
+            }, RUN_TIMEOUT_MS);
+            this.pending = { id, timer, resolve };
+            worker.postMessage({ id, asm });
+        });
+    }
+
+    dispose(): void {
+        this.cancel();
+        this.kill();
+        URL.revokeObjectURL(this.url);
+    }
+
+    private settle(id: number, result: RunResult): void {
+        const p = this.pending;
+        if (!p || p.id !== id) return;
+        clearTimeout(p.timer);
+        this.pending = null;
+        p.resolve(result);
+    }
+
+    /** A busy worker can't be interrupted, only replaced. */
+    private cancel(): void {
+        const p = this.pending;
+        if (!p) return;
+        clearTimeout(p.timer);
+        this.pending = null;
+        this.kill();
+        p.resolve(null);
+    }
+
+    private spawn(): Worker {
+        if (this.worker) return this.worker;
+        const worker = new Worker(this.url);
+        worker.onmessage = ({ data }: MessageEvent<WorkerReply>) =>
+            this.settle(
+                data.id,
+                data.ok
+                    ? {
+                          kind: 'exited',
+                          stdout: data.output,
+                          code: data.code ?? 0,
+                          ms: data.ms ?? 0,
+                      }
+                    : { kind: 'error', output: data.output },
+            );
+        worker.onerror = () => {
+            const id = this.pending?.id;
+            this.kill();
+            if (id !== undefined)
+                this.settle(id, {
+                    kind: 'error',
+                    output: "Couldn't start the emulator.",
+                });
+        };
+        worker.postMessage({ module: this.module });
+        this.worker = worker;
+        return worker;
+    }
+
+    private kill(): void {
+        this.worker?.terminate();
+        this.worker = null;
     }
 }
 
@@ -213,6 +349,50 @@ function highlightAsm(asm: string): ReactNode[] {
 // Component
 // ---------------------------------------------------------------------------
 
+function runLabel(result: RunResult | null, running: boolean): string {
+    if (running) return 'running…';
+    if (!result) return '';
+    switch (result.kind) {
+        case 'exited':
+            return `exit ${result.code} · ${formatMs(result.ms)}`;
+        case 'error':
+            return 'runtime error';
+        case 'timeout':
+            return 'stopped';
+    }
+}
+
+function renderRunOutput(
+    result: RunResult | null,
+    running: boolean,
+    compiled: CompileResult | null,
+): ReactNode {
+    if (compiled && !compiled.ok) {
+        return (
+            <span className="text-muted">
+                Fix the compile error to run the program.
+            </span>
+        );
+    }
+    if (!result) {
+        return (
+            <span className="text-muted">
+                {running ? 'Running…' : 'Waiting for the compiler…'}
+            </span>
+        );
+    }
+    switch (result.kind) {
+        case 'exited':
+            return result.stdout || (
+                <span className="text-muted">(no output)</span>
+            );
+        case 'error':
+            return result.output;
+        case 'timeout':
+            return `Stopped after ${RUN_TIMEOUT_MS / 1000} s. The program is probably stuck in a loop.`;
+    }
+}
+
 // Browsers coarsen performance.now() (0.1-1 ms), so tiny compiles read as 0.
 function formatMs(ms: number): string {
     return ms < 1 ? '<1 ms' : `${ms.toFixed(1)} ms`;
@@ -232,6 +412,13 @@ export default function Playground() {
     const [source, setSource] = useState(EXAMPLES[0].source);
     const [compiler, setCompiler] = useState<Compiler | null>(null);
     const [status, setStatus] = useState<Status>({ kind: 'loading' });
+    const [runner, setRunner] = useState<Runner | null>(null);
+    // The previous output stays up while a new run is in flight, so typing
+    // doesn't make the console flicker.
+    const [run, setRun] = useState<{
+        result: RunResult | null;
+        running: boolean;
+    }>({ result: null, running: false });
 
     const highlightRef = useRef<HTMLPreElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -257,11 +444,40 @@ export default function Playground() {
         return () => clearTimeout(id);
     }, [compiler, source]);
 
+    useEffect(() => {
+        if (!compiler) return;
+        const r = new Runner(compiler.module);
+        setRunner(r);
+        return () => r.dispose();
+    }, [compiler]);
+
+    const result = status.kind === 'done' ? status.result : null;
+
+    useEffect(() => {
+        if (!runner || !result?.ok) {
+            setRun({ result: null, running: false });
+            return;
+        }
+        let cancelled = false;
+        // Most programs finish in a few ms; only show "running" for slow ones.
+        const slow = setTimeout(
+            () => setRun((prev) => ({ ...prev, running: true })),
+            150,
+        );
+        runner.run(result.asm).then((r) => {
+            clearTimeout(slow);
+            if (!cancelled && r) setRun({ result: r, running: false });
+        });
+        return () => {
+            cancelled = true;
+            clearTimeout(slow);
+        };
+    }, [runner, result]);
+
     const highlightedSource = useMemo(
         () => highlightTanScript(source),
         [source],
     );
-    const result = status.kind === 'done' ? status.result : null;
     const highlightedAsm = useMemo(
         () => (result?.ok ? highlightAsm(result.asm) : null),
         [result],
@@ -319,7 +535,8 @@ export default function Playground() {
                         </a>
                         , a language and compiler I wrote from scratch in Rust,
                         running in your browser as WebAssembly. Edit the code
-                        and the x86-64 assembly regenerates as you type.
+                        and the x86-64 assembly regenerates as you type, then
+                        runs on an emulated CPU so you can see its output.
                     </p>
                 </div>
                 <label className="flex items-center gap-2 text-sm text-muted">
@@ -396,6 +613,25 @@ export default function Playground() {
                         </pre>
                     </div>
                 </div>
+                <div className="pg-pane border-t">
+                    <div className="pg-pane-title flex gap-2">
+                        stdout
+                        <span className="ml-auto opacity-60">
+                            {runLabel(run.result, run.running)}
+                        </span>
+                    </div>
+                    <pre
+                        className={`pg-code pg-stdout ${
+                            run.result && run.result.kind !== 'exited'
+                                ? 'pg-error'
+                                : ''
+                        } ${run.running ? 'opacity-60' : ''}`}
+                        aria-live="polite"
+                        aria-label="Program output"
+                    >
+                        {renderRunOutput(run.result, run.running, result)}
+                    </pre>
+                </div>
                 <div className="pg-status">
                     {result ? (
                         result.ok ? (
@@ -419,7 +655,7 @@ export default function Playground() {
                         </>
                     )}
                     <span className="ml-auto max-sm:hidden">
-                        Compiles only — it doesn&apos;t run the program
+                        Runs on an emulated x86-64 CPU
                     </span>
                 </div>
             </div>
