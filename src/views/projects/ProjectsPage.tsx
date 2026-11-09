@@ -225,6 +225,40 @@ function ProjectsPage() {
                 />
 
                 <CompactProject
+                    id="tmail"
+                    title="tmail"
+                    overview="A from-scratch SMTP + IMAP mail server in Rust that runs my email every day, self-hosted on my home Linux server"
+                    githubLink="https://github.com/tanndlin/rs-smtp"
+                    technologies={[
+                        <Tech.RustTech key="rust" />,
+                        <Tech.SQLTech key="sql" />,
+                        <Tech.DockerTech key="docker" />,
+                    ]}
+                >
+                    <ul className="mt-1 list-disc">
+                        <li className="ml-4">
+                            Hand-written SMTP and IMAP protocol parsers —
+                            command/response types and a per-connection state
+                            machine, with no protocol crates.
+                        </li>
+                        <li className="ml-4">
+                            Four-service architecture: SMTP ingest, IMAP server,
+                            and a RabbitMQ consumer that persists mail to
+                            PostgreSQL, all wired together with Docker Compose.
+                        </li>
+                        <li className="ml-4">
+                            Compile-time-checked SQL via sqlx with versioned
+                            migrations; async services built on Tokio.
+                        </li>
+                        <li className="ml-4">
+                            Integration test suite driving real IMAP flows
+                            (LOGIN, SELECT, FETCH, APPEND) against the running
+                            server.
+                        </li>
+                    </ul>
+                </CompactProject>
+
+                <CompactProject
                     id="rs-http2"
                     title="rs-http2"
                     overview="An HTTP/2 server built up from the binary protocol, serving static files at roughly 150k requests/sec"
