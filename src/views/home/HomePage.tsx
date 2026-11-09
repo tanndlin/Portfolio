@@ -1,3 +1,4 @@
+import HeroBackground from './HeroBackground';
 import Playground from './Playground';
 
 // The systems behind the tagline, each with the fact that makes it real.
@@ -55,8 +56,9 @@ function HomePage() {
         <>
             <article
                 id="home"
-                className="flex items-center flex-1 w-full py-20 max-sm:py-12"
+                className="relative flex items-center flex-1 w-full py-20 isolate max-sm:py-12"
             >
+                <HeroBackground />
                 <div className="w-full">
                     <div className="flex items-center justify-between gap-12 max-sm:flex-col max-sm:items-start">
                         <div className="flex-1">
