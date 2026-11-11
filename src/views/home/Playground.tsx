@@ -23,7 +23,8 @@ interface CompilerExports {
     compile(ptr: number, len: number): number;
     output_ptr(): number;
     output_len(): number;
-    run(ptr: number, len: number): number;
+    /** `time` is Unix seconds, what the program's `time()` returns. */
+    run(ptr: number, len: number, time: number): number;
     exit_code(): number;
 }
 
@@ -108,7 +109,7 @@ onmessage = (e) => {
         const bytes = new TextEncoder().encode(asm);
         const ptr = x.alloc(bytes.length);
         new Uint8Array(x.memory.buffer, ptr, bytes.length).set(bytes);
-        const ok = x.run(ptr, bytes.length) === 1;
+        const ok = x.run(ptr, bytes.length, Math.floor(Date.now() / 1000)) === 1;
         x.dealloc(ptr, bytes.length);
         const output = new TextDecoder().decode(
             new Uint8Array(x.memory.buffer, x.output_ptr(), x.output_len()));
