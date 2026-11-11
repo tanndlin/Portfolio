@@ -388,6 +388,38 @@ code {
     }
 }
 
+.pg-resize {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 0.875rem;
+    cursor: ns-resize;
+    touch-action: none;
+    border-top: 1px solid $border-color;
+    background: rgba(51, 65, 85, 0.15);
+
+    &::before {
+        content: '';
+        width: 2.5rem;
+        height: 3px;
+        border-radius: 2px;
+        background: $text-muted;
+        opacity: 0.5;
+        transition: opacity 0.15s, background-color 0.15s;
+    }
+
+    &:hover::before,
+    &:focus-visible::before {
+        background: $accent;
+        opacity: 1;
+    }
+
+    &:focus-visible {
+        outline: none;
+        box-shadow: inset 0 0 0 2px rgba(45, 212, 191, 0.4);
+    }
+}
+
 .pg-error,
 .pg-error * {
     color: #fca5a5;

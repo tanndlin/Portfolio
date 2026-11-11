@@ -2,10 +2,12 @@
 
 import {
     useEffect,
+    useLayoutEffect,
     useMemo,
     useRef,
     useState,
     type KeyboardEvent,
+    type PointerEvent,
     type ReactNode,
     type UIEvent,
 } from 'react';
@@ -403,6 +405,15 @@ const WASM_URL = '/tanscript.wasm';
 const COMPILE_DELAY_MS = 120;
 const INDENT = '    ';
 
+// The stdout pane grows to fit the program's output (up to a cap) until the
+// visitor resizes it by hand.
+const STDOUT_MIN_PX = 128;
+const STDOUT_FIT_MAX_PX = 960;
+const STDOUT_STEP_PX = 32;
+
+const clampFit = (px: number) =>
+    Math.min(Math.max(px, STDOUT_MIN_PX), STDOUT_FIT_MAX_PX);
+
 type Status =
     | { kind: 'loading' }
     | { kind: 'load-failed' }
@@ -421,7 +432,18 @@ export default function Playground() {
         running: boolean;
     }>({ result: null, running: false });
 
+    // null until the first output is measured, so the CSS default applies.
+    const [stdoutHeight, setStdoutHeight] = useState<number | null>(null);
+    const autoFitRef = useRef(true);
+    // Set when switching examples so the pane may shrink to the new output;
+    // otherwise it only grows, so editing doesn't make the page jump.
+    const refitRef = useRef(true);
+    const dragRef = useRef<{ startY: number; startHeight: number } | null>(
+        null,
+    );
+
     const highlightRef = useRef<HTMLPreElement>(null);
+    const stdoutRef = useRef<HTMLPreElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const tabEscapedRef = useRef(false);
 
@@ -475,6 +497,17 @@ export default function Playground() {
         };
     }, [runner, result]);
 
+    useLayoutEffect(() => {
+        if (!autoFitRef.current || !run.result) return;
+        const target = fitStdoutHeight();
+        if (target === null) return;
+        const refit = refitRef.current;
+        refitRef.current = false;
+        setStdoutHeight((prev) =>
+            prev === null || refit ? target : Math.max(prev, target),
+        );
+    }, [run.result]);
+
     const highlightedSource = useMemo(
         () => highlightTanScript(source),
         [source],
@@ -489,6 +522,56 @@ export default function Playground() {
         if (!example) return;
         setExampleId(id);
         setSource(example.source);
+        autoFitRef.current = true;
+        refitRef.current = true;
+    }
+
+    /** The height that shows all of stdout, within the auto-fit bounds. */
+    function fitStdoutHeight(): number | null {
+        const el = stdoutRef.current;
+        if (!el) return null;
+        const prev = el.style.height;
+        el.style.height = 'auto';
+        const natural = el.offsetHeight;
+        el.style.height = prev;
+        return clampFit(natural);
+    }
+
+    function fitStdout() {
+        autoFitRef.current = true;
+        const target = fitStdoutHeight();
+        if (target !== null) setStdoutHeight(target);
+    }
+
+    function resizeStdout(height: number) {
+        autoFitRef.current = false;
+        setStdoutHeight(Math.max(STDOUT_MIN_PX, Math.round(height)));
+    }
+
+    function onResizeStart(e: PointerEvent<HTMLDivElement>) {
+        const el = stdoutRef.current;
+        if (!el || e.button !== 0) return;
+        e.preventDefault();
+        e.currentTarget.setPointerCapture(e.pointerId);
+        dragRef.current = { startY: e.clientY, startHeight: el.offsetHeight };
+    }
+
+    function onResizeMove(e: PointerEvent<HTMLDivElement>) {
+        const drag = dragRef.current;
+        if (drag) resizeStdout(drag.startHeight + e.clientY - drag.startY);
+    }
+
+    function onResizeKey(e: KeyboardEvent<HTMLDivElement>) {
+        const height = stdoutRef.current?.offsetHeight;
+        if (height === undefined) return;
+        if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            const step = e.key === 'ArrowUp' ? -STDOUT_STEP_PX : STDOUT_STEP_PX;
+            resizeStdout(height + step);
+        } else if (e.key === 'Enter') {
+            e.preventDefault();
+            fitStdout();
+        }
     }
 
     function syncScroll(e: UIEvent<HTMLTextAreaElement>) {
@@ -622,6 +705,12 @@ export default function Playground() {
                         </span>
                     </div>
                     <pre
+                        ref={stdoutRef}
+                        style={
+                            stdoutHeight === null
+                                ? undefined
+                                : { height: stdoutHeight }
+                        }
                         className={`pg-code pg-stdout ${
                             run.result && run.result.kind !== 'exited'
                                 ? 'pg-error'
@@ -632,6 +721,22 @@ export default function Playground() {
                     >
                         {renderRunOutput(run.result, run.running, result)}
                     </pre>
+                    <div
+                        className="pg-resize"
+                        role="separator"
+                        aria-orientation="horizontal"
+                        aria-label="Resize output (Enter fits it to the output)"
+                        aria-valuenow={stdoutHeight ?? undefined}
+                        aria-valuemin={STDOUT_MIN_PX}
+                        tabIndex={0}
+                        title="Drag to resize · double-click to fit"
+                        onPointerDown={onResizeStart}
+                        onPointerMove={onResizeMove}
+                        onPointerUp={() => (dragRef.current = null)}
+                        onPointerCancel={() => (dragRef.current = null)}
+                        onDoubleClick={fitStdout}
+                        onKeyDown={onResizeKey}
+                    />
                 </div>
                 <div className="pg-status">
                     {result ? (
